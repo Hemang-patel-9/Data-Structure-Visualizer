@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Data Structure Visualization</title>
+	<link rel="stylesheet" href="./index.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="bg-image">
+			<div class="titleBar"><img src="./IMAGES/DU_Logo.png" alt="logo not found">
+				<nav>
+					<ul>
+						<li id="home">Home</li>
+						<li id="aboutus">About Us</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="info">
+				<div class="infoBox">
+					<div class="heading">Data Structure Visualization</div>
+					<div class="heading-data">
+						<p>Trees are used in computer science for various tasks, including storing information,
+							representing hierarchical data, and providing efficient algorithm for operations such as
+							insertion, deletion and searching.Different types of data structures are suited to different
+							kinds of applications, and some are highly specialized to
+							specific tasks.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="allStructure">
+				<div><a href="./STACK/stack.html"><img src="./IMAGES/Stack.png" alt="image not found" /></a></div>
+				<div><a href="./QUEUE/queue.html"><img src="./IMAGES/queue.png" alt="image not found" /></a></div>
+				<div><a href="./LINK_LIST/link_list.html"><img src="./IMAGES/Link_List.png" alt="image not found" /></a>
+				</div>
+				<div><a href="./TREE/tree.html"><img src="./IMAGES/Tree.png" alt="image not found" /></a></div>
+				<div><a href="./GRAPH/graph.html"><img src="./IMAGES/Graph.png" alt="image not found" /></a></div>
+				<div><a href="./SUM/sum.html"><img src="./IMAGES/Infic-Prefix-Postfix-removebg-preview.png"
+							alt="image not found" /></a></div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="icons">
+				<a href="https://www.twitter.com" class="fa fa-twitter"></a>
+				<a href="https://www.facebook.com" class="fa fa-facebook"></a>
+				<a href="https://www.github.com" class="fa fa-github"></a>
+				<a href="https://www.instagram.com" class="fa fa-instagram"></a>
+			</div>
+			<div class="about">
+				<div class="collabration">Collabration :</div>
+				<div class="names">Developer : hemang9705@gmail.com, hetvideshani@gmail.com<br>Designer :
+					shrut2201@gmail.com</div>
+			</div>
+			<div class="copyrights">&#169;Copyrights 2022&nbsp;<u>Darshan University </u>- All Rights Reserved</div>
+		</div>
+	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top"> &uarr; </button>
+</body>
+
+</html>
+<script>
+	let mybutton = document.getElementById("myBtn");
+
+	window.onscroll = function () { scrollFunction() };
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+			mybutton.style.display = "block";
+		} else {
+			mybutton.style.display = "none";
+		}
+	}
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+	document.getElementById('aboutus').addEventListener('click', () => {
+		location.href = "about.html";
+	});
+	document.getElementById('home').addEventListener('click', () => {
+		location.href = "index.html";
+	});
+</script>
