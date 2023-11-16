@@ -1,7 +1,7 @@
 .container {
 	height: 100%;
 	width: 100%;
-	background-color: pink;
+	background-color: rgb(214, 220, 255);
 	position: fixed;
 }
 
