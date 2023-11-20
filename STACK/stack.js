@@ -1,5 +1,4 @@
 //needed variables
-let stack = [];
 let size;
 let divID = 0;
 let perfoming = false;
@@ -9,13 +8,14 @@ var b1;
 //data structure of stack
 class Stack {
   constructor(n) {
+    this.stack = [];
     size = n;
   }
 
   pushStack(data) {
     if (Number.parseInt(front) < Number.parseInt(size) - 1) {
       front++;
-      stack.push(data);
+      this.stack.push(data);
       makeDiv(data);
     } else {
       alert("Stack overflow");
@@ -25,7 +25,7 @@ class Stack {
   popStack() {
     if (Number.parseInt(front) >= 0) {
       front--;
-      let ele = stack.pop();
+      let ele = this.stack.pop();
       delDiv();
       return ele;
     } else {
@@ -35,7 +35,7 @@ class Stack {
 
   peepStack(i) {
     if (Number.parseInt(front - i + 1) >= 0) {
-      let ele = stack[front - i + 1];
+      let ele = this.stack[front - i + 1];
       return ele;
     } else {
       alert("Stack underflow");
@@ -44,14 +44,12 @@ class Stack {
 
   changeStack(i, data) {
     if (Number.parseInt(front - i + 1) >= 0) {
-      stack[front - i + 1] = data;
+      alert(front);
+      this.stack[front - i + 1] = data;
+      return data;
     } else {
       alert("Stack underflow");
     }
-  }
-
-  printStack() {
-    alert("this is " + stack);
   }
 }
 /**Clicking events start */
@@ -76,7 +74,6 @@ document.getElementById("btnSize").addEventListener("click", () => {
       b1 = null;
       front = -1;
       divID = 0;
-      stack = [];
       document.getElementById("btnSize").click();
     }
   }
@@ -120,12 +117,18 @@ document.getElementById("btnChange").addEventListener("click", () => {
     let position = document.getElementById("position").value;
     let newval = document.getElementById("newvalue").value;
     if (position != "" && newval != "") {
-      b1.changeStack(position, newval);
-      changeDiv(position, newval);
+      let tmp=b1.changeStack(position, newval);
+      alert(tmp);
+      console.log(tmp);
+      if(tmp!=undefined)
+      {
+        changeDiv(position, newval);
+      }
     }
   }
 });
 /**Clicking events end */
+
 function makeDiv(data) {
   divID++;
   let old = document.getElementById("inner");
@@ -144,10 +147,10 @@ async function animationForPush(id) {
   console.log("push performing init");
   perfoming = true;
   let t = document.getElementById("inner").clientHeight;
-  let minus = document.getElementById(id).clientHeight;
+  //300
   let set = document.getElementById(id);
-  t = t * -1;
-  t = t + minus * id;
+  t *= -1;//-300
+  t += Number.parseInt(set.clientHeight) * id;
   while (t <= 0) {
     await sleep(0.5);
     t += 1;
@@ -167,18 +170,15 @@ async function delDiv() {
   if (divID > 0) {
     let t = document.getElementById("inner").clientHeight;
     let set = document.getElementById(divID);
-    t = t * -1;
+    t *= -1;
+    t += Number.parseInt(set.clientHeight) * divID;
     let n = Number.parseInt(set.style.top);
-    console.log("have while chalu thase");
     while (t != n && n != NaN) {
       await sleep(1);
       n--;
       set.style.top = `${n}px`;
-      console.log("thai gyu chalu bhai");
     }
-    console.log("puru ho while kale aavjo");
     document.getElementById(divID).remove();
-    console.log("remover thai gyo");
     divID--;
   } else {
     alert("can't pop");

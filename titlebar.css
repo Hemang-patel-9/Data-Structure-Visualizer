@@ -11,8 +11,8 @@
 	width: 13%;
 	padding-left: 6px;
 	image-rendering: optimizeQuality;
-	object-fit: scale-down;
-	float: left
+	object-fit: contain;
+	float: left;
 }
 
 .titleBar nav {
@@ -27,16 +27,16 @@
 .titleBar nav ul {
 	list-style-type: none;
 }
-
+.titleBar nav ul a{
+	text-decoration: none;
+}
 .titleBar nav li {
 	color: white;
 	padding-top: 5px;
 	padding-right: 50px;
 	font-size: xx-large;
 	float: left;
-
 }
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 	.titleBar

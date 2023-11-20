@@ -5,17 +5,6 @@
 	position: fixed;
 }
 
-.heading {
-	height: 10%;
-	background-color: red;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 3em;
-	background-color: rgb(33, 46, 80);
-}
-
 .boxes {
 	width: 100%;
 	height: 80%;
@@ -23,12 +12,10 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 }
 
 .boxes .box {
-	margin: auto;
-	margin-top: 20px;
+	margin: 40px auto;
 	width: 50%;
 	height: 20%;
 	background-color: rgb(33, 46, 80);
@@ -51,8 +38,8 @@
 	font-size: 30px;
 	color: white;
 }
-.boxes .box span a
-{
+
+.boxes .box span a {
 	text-decoration: none;
 }
 
@@ -66,6 +53,15 @@
 	.boxes .box span {
 		font-size: 16px;
 	}
+	.boxes .box {
+		width: 60%;
+		height: 13%;
+		margin: 30px auto;
+	}
+	.boxes .box:first-child
+	{
+		margin-top: 70px;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -75,7 +71,17 @@
 	}
 
 	.boxes .box span {
-		font-size: 23px;
+		font-size: 26px;
+	}
+
+	.boxes .box {
+		width: 60%;
+		height: 13%;
+		margin: 40px auto 45px;
+	}
+	.boxes .box:first-child
+	{
+		margin-top: 100px;
 	}
 }
 
@@ -88,6 +94,11 @@
 	.boxes .box span {
 		font-size: 29px;
 	}
+
+	.boxes .box {
+		margin: 44px auto;
+		height: 15%;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -99,6 +110,15 @@
 	.boxes .box span {
 		font-size: 35px;
 	}
+
+	.boxes .box {
+		height: 17%;
+		margin: 40px auto;
+	}
+	.boxes .box:first-child
+	{
+		margin-top: 40px;
+	}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -109,5 +129,9 @@
 
 	.boxes .box span {
 		font-size: 40px;
+	}
+
+	.boxes .box {
+		height: 20%;
 	}
 }

@@ -4,7 +4,11 @@
 	box-sizing: border-box;
 	font-family: 'Times New Roman', Times, serif;
 }
-
+::selection
+{
+	background-color: transparent;
+	color: aqua;
+}
 .container {
 	height: 105vh;
 	width: 100%;
@@ -17,7 +21,6 @@
 	border-top: 5px solid black;
 	height: 80%;
 	width: 100%;
-	/* background-color: red; */
 }
 
 .contentBox .inputs {
@@ -114,8 +117,8 @@
 {
 	display: flex;
 	align-items: end;
-	width: 35%;
-	height:600px;
+	width: 85%;
+	height: 600px;
 	padding: 3px;
 }
 .outer .inner
@@ -163,12 +166,17 @@ input::-webkit-inner-spin-button {
 input[type=number] {
 	-moz-appearance: textfield;
 }
+.alert
+{
+	/* position: relative; */
+	background-color: peru;
+}
 /*Media query start*/
 
 @media only screen and (max-width: 600px) {
 	.stackBox .outer
 	{
-		width: 46%;
+		width: 85%;
 	}
 }
 
@@ -176,7 +184,7 @@ input[type=number] {
 @media only screen and (min-width: 600px) {
 	.stackBox .outer
 	{
-		width: 42%;
+		width: 85%;
 	}
 }
 
@@ -184,7 +192,7 @@ input[type=number] {
 @media only screen and (min-width: 768px) {
 	.stackBox .outer
 	{
-		width: 42%;
+		width: 85%;
 	}
 }
 
@@ -192,7 +200,7 @@ input[type=number] {
 @media only screen and (min-width: 992px) {
 	.stackBox .outer
 	{
-		width: 45%;
+		width: 85%;
 	}
 }
 
