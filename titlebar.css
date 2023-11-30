@@ -44,11 +44,14 @@
 		height: 7.7%;
 	}
 	.titleBar img {
-		width: 107px;
+		width: 103px;
 	}
-
+	.titleBar nav
+	{
+		width: 65%;
+	}
 	.titleBar nav li {
-		padding-right: 30px;
+		padding-right: 27px;
 		font-size: 20px;
 	}
 }
@@ -89,7 +92,7 @@
 
 	.titleBar nav li {
 		padding-right: 45px;
-		font-size: 35px;
+		font-size: 32px;
 	}
 }
 

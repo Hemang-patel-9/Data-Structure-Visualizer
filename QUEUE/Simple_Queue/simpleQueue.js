@@ -112,7 +112,6 @@ function setFront(id, val) {
   let parent = document.getElementById(`item${id}`);
   console.log(parent);
   if (q1.frontIndex === q1.rearIndex) {
-    console.log("same indexes here");
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
   } else {
     parent.innerHTML = `${val}<div class='position' id='front'>front</div>`;

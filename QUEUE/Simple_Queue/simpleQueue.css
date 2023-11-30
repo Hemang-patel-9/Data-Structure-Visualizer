@@ -200,6 +200,28 @@ input::placeholder {
 	.sqbox .inputBoxes .deq::after {
 		content: "DeQ";
 	}
+
+	.x .queue>div {
+		height: 120px;
+		width: 100%;
+	}
+
+	.x .queue>div>.item {
+		height: 40%;
+		width: 9.7%;
+		font-size: 15px;
+		margin-right: 2px;
+		margin-left: 2px;
+	}
+
+	.x .queue>div>.item .position {
+		width: 27px;
+		font-size: 13.3px;
+	}
+
+	.x .queue>div>.item .both .innerboth {
+		font-size: 6.5px;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -224,6 +246,23 @@ input::placeholder {
 	.sqbox .inputBoxes {
 		height: 6%;
 	}
+
+	.x .queue>div>.item {
+		height: 54%;
+		width: 10.7%;
+		margin-left: 8px;
+		margin-right: 8px;
+		font-size: 20px;
+	}
+
+	.x .queue>div>.item .position {
+		width: 35px;
+		font-size: 15px;
+	}
+
+	.x .queue>div>.item .both .innerboth {
+		font-size: 10.5px;
+	}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -245,6 +284,23 @@ input::placeholder {
 	.sqbox .inputBoxes {
 		height: 7.8%;
 	}
+
+	.x .queue>div>.item {
+		height: 65%;
+		width: 7.7%;
+		margin-left: 12px;
+		margin-right: 12px;
+		font-size: 25px;
+	}
+
+	.x .queue>div>.item .position {
+		width: 45px;
+		font-size: 20px;
+	}
+
+	.x .queue>div>.item .both .innerboth {
+		font-size: 12px;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -262,6 +318,20 @@ input::placeholder {
 	.sqbox .inputBoxes .deq::after {
 		content: "DeQueue";
 	}
+
+	.x .queue>div>.item {
+		height: 80%;
+		width: 10.7%;
+	}
+
+	.x .queue>div>.item .position {
+		width: 56px;
+		font-size: 21px;
+	}
+
+	.x .queue>div>.item .both .innerboth {
+		font-size: 15px;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
@@ -278,6 +348,22 @@ input::placeholder {
 	.sqbox .inputBoxes .deq::after {
 		content: "DeQueue";
 	}
+
+	.x .queue>div>.item {
+		height: 80%;
+		width: 7.7%;
+		margin-left: 15px;
+		margin-right: 15px;
+		font-size: 30px;
+	}
+
+	.x .queue>div>.item .position {
+		width: 65px;
+		font-size: 25px;
+	}
+		.x .queue>div>.item .both .innerboth {
+			font-size: 17px;
+		}
 }
 
 /*Media query end*/
