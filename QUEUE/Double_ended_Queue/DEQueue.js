@@ -13,7 +13,7 @@ class DEQueue {
 
   insertFront(data) {
     if (this.frontIndex == 0) {
-      alert("Can't insert at first");
+      alert("Queue overflow");
       return;
     }
     if (this.frontIndex == -1) {
@@ -40,18 +40,18 @@ class DEQueue {
   }
 
   deleteFront() {
-    if (this.frontIndex == this.rearIndex + 1||this.frontIndex==-1) {
+    if (this.frontIndex == this.rearIndex + 1 || this.frontIndex == -1) {
       alert("Queue Underflow");
       return;
     }
-    if(this.frontIndex==this.rearIndex){
-      document.getElementById(`item${this.frontIndex+1}`).innerHTML="";
-      document.getElementById("front").remove();
+    if (this.frontIndex == this.rearIndex) {
+      document.getElementById("both").remove();
+      document.getElementById(`item${this.frontIndex + 1}`).innerHTML = "";
       this.dequeue.shift();
-      this.frontIndex=-1;
-      this.rearIndex=-1;
+      this.frontIndex = -1;
+      this.rearIndex = -1;
       return;
-    }  
+    }
     this.frontIndex++;
     this.dequeue.shift();
     setDeleteFirst(this.frontIndex + 1, this.dequeue[0]);
@@ -60,6 +60,14 @@ class DEQueue {
   deleteLast() {
     if (this.rearIndex == -1) {
       alert("can't delete from empty queue");
+      return;
+    }
+    if (this.rearIndex == this.frontIndex) {
+      document.getElementById("both").remove();
+      document.getElementById(`item${this.frontIndex + 1}`).innerHTML = "";
+      this.dequeue.pop();
+      this.frontIndex = -1;
+      this.rearIndex = -1;
       return;
     }
     this.dequeue.pop();
@@ -105,7 +113,7 @@ document.getElementById("btnEnq").addEventListener("click", () => {
       deq.insertLast(Number.parseInt(val));
     }
   }
-  document.getElementById("inputEnq").value="";
+  // document.getElementById("inputEnq").value="";
 });
 
 document.getElementById("btnDeq").addEventListener("click", () => {
@@ -149,9 +157,26 @@ function setInsertLast(id, val) {
   }
 }
 
-function setInsertFirst(id, val) {}
+function setInsertFirst(id, val) {
+  document.getElementById("front").remove();
 
-function setDeleteLast() {}
+  let parent = document.getElementById(`item${id}`);
+
+  parent.innerHTML = `${val}<div class='position' id='front'>front</div>`;
+}
+
+function setDeleteLast(id, val) {
+  document.getElementById("rear").remove();
+  document.getElementById(`item${id + 1}`).innerHTML = "";
+  let parent = document.getElementById(`item${id}`);
+
+  if (deq.frontIndex == deq.rearIndex) {
+    parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
+  }
+  else {
+    parent.innerHTML = `${val}<div class='position' id='rear'>rear</div>`;
+  }
+}
 
 function setDeleteFirst(id, val) {
   document.getElementById("front").remove();
