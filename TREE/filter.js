@@ -1,6 +1,7 @@
 let myId;
 //input is contains only number or not?
-function validNumber(param) {
+function validNumber() {
+  // alert('me to thak gai');
   if (isChange == true) {
     let tmp = document.getElementById("inputBox").value;
     document.getElementById("inputBox").value = "";
@@ -8,11 +9,11 @@ function validNumber(param) {
     document.getElementById("inputBox").value = tmp;
   }
   checkInput();
-  let str = document.getElementById(param).value;
+  let str = document.getElementById("inputBox").value;
   let x = str.charCodeAt(str.length - 1);
   if (((x >= 58 && x <= 126) || (x >= 33 && x <= 47)) && x != 45) {
     let del = str.substring(str.length - 1, str.length + 1);
-    document.getElementById(param).value = str.replace(del, "");
+    document.getElementById("inputBox").value = str.replace(del, "");
   }
 }
 //filtering the data;
@@ -41,7 +42,7 @@ function filterdata(str) {
     for (b = a - 1; b >= 0; b--) {
       if (arr[a] == arr[b]) {
         flag = 1;
-        alert("duplicate can't allow");
+        alert("duplicate can't allow.All duplicate number will be removed automattically.");
       }
     }
     if (flag == 0) {

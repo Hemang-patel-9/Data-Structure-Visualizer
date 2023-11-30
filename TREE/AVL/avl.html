@@ -28,25 +28,32 @@
 		<div class="heading">AVL Tree</div>
 		<div class="contentDiv">
 			<div class="inputMenus">
-				<div class="maininputBox"><input type="text" placeholder="Enter space saperated value of node" /></div>
-				<div class="myIcon">&#10004;</div>
-				<div class="inputBox"><input type="number" /></div>
-				<div class="myIcon">&#128465;</div>
-				<div class="inputBox"><input type="number" /></div>
-				<div class="myIcon">&#128269;</div>
+				<div class="maininputBox"><input type="text" id="inputBox" placeholder="Enter space saperated value of node" onkeyup="validNumber()"/></div>
+				<div class="myIcon" onclick="BalancedTree()">&#10004;</div>
+				<div class="inputBox"><input type="number" id="delval"/></div>
+				<div class="myIcon" onclick="del()">&#128465;</div>
+				<div class="inputBox"><input type="number" id="search" /></div>
+				<div class="myIcon" onclick="searchAVL()">&#128269;</div>
 				<div class="myIcon bar">&#9776;
 					<div class="traversal">
-						<div class="innerTraversal"><button>InOrder</button></div>
-						<div class="innerTraversal"><button>PreOrder</button></div>
-						<div class="innerTraversal"><button>PostOrder</button></div>
+						<div class="innerTraversal" onclick="printIn()"><button>InOrder</button></div>
+						<div class="innerTraversal" onclick="printPre()"><button>PreOrder</button></div>
+						<div class="innerTraversal" onclick="printPost()"><button>PostOrder</button></div>
 					</div>
 				</div>
 			</div>
 			<div class="canvasDiv">
-				<canvas id="myBstCanvas" height="20000" width="6000"></canvas>
+				<canvas id="myAvlCanvas" height="20000" width="6000"></canvas>
 			</div>
 		</div>
 	</div>
 </body>
 
 </html>
+<script src="../filter.js"></script>
+<script src="./avl.js"></script>
+<script src="../drawTree.js"></script>
+<script src="./printHB.js"></script>
+<script src="./HBTree.js"></script>
+<script src="./avldelete.js"></script>
+<script src="./searchAVL.js"></script>

@@ -12,8 +12,7 @@
 	position: fixed;
 }
 
-html
-{
+html {
 	margin: 0;
 	padding: 0;
 }
@@ -72,7 +71,10 @@ input::placeholder {
 	background-color: maroon;
 	color: white;
 	overflow: hidden;
+}
 
+.inputBoxes>div>button:hover {
+	cursor: pointer;
 }
 
 .inputBoxes div:last-child button {
@@ -80,7 +82,98 @@ input::placeholder {
 }
 
 .sqbox .x {
+	width: 100%;
+	height: 100%;
 	overflow: hidden;
+	background-color: rgb(178, 251, 251);
+}
+
+.x .queue {
+	margin: 1px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	justify-content: center;
+}
+
+.x .queue>div {
+	width: 100%;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	margin: 2px;
+}
+
+.x .queue>div>.item {
+	position: relative;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 30px;
+	height: 80%;
+	width: 7.7%;
+	border: 1px solid black;
+	border-radius: 8px;
+}
+
+.x .queue>div>.item .position {
+	float: left;
+	background-color: rgb(47, 88, 119);
+	color: white;
+	height: 20px;
+	width: 60px;
+	font-size: 20px;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: -22px;
+	z-index: 99;
+	animation-name: queue;
+	animation-duration: 1.3s;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	border-radius: 10px 10px 0px 0px;
+	overflow: hidden;
+}
+
+.x .queue>div>.item .both {
+	position: absolute;
+	background-color: rgb(47, 88, 119);
+	color: white;
+	border-radius: 10px 10px 0px 0px;
+	width: 89%;
+	z-index: 99;
+	height: 20px;
+	top: -22px;
+	animation-name: queue;
+	animation-duration: 1.3s;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	overflow: hidden;
+}
+
+.x .queue>div>.item .both .innerboth {
+	font-size: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	height: 100%;
+	width: 50%;
+	overflow: hidden;
+}
+
+@keyframes queue {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 /*Media query start*/
@@ -126,7 +219,9 @@ input::placeholder {
 
 	.sqbox .inputBoxes .deq::after {
 		content: "DeQueue";
-	}.sqbox .inputBoxes {
+	}
+
+	.sqbox .inputBoxes {
 		height: 6%;
 	}
 }
@@ -146,9 +241,10 @@ input::placeholder {
 	.sqbox .inputBoxes .deq::after {
 		content: "DeQueue";
 	}
-		.sqbox .inputBoxes {
-			height: 7.8%;
-		}
+
+	.sqbox .inputBoxes {
+		height: 7.8%;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

@@ -23,6 +23,7 @@ class BinarySearchTree {
     this.root = null;
   }
   insert(data, data2) {
+    alert('inserted');
     //Creating new Node
     const newNode = new NodeCreate(data, data2);
 

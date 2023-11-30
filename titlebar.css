@@ -44,12 +44,12 @@
 		height: 7.7%;
 	}
 	.titleBar img {
-		width: 70px;
+		width: 107px;
 	}
 
 	.titleBar nav li {
 		padding-right: 30px;
-		font-size: 16px;
+		font-size: 20px;
 	}
 }
 
@@ -65,42 +65,42 @@
 
 	.titleBar nav li {
 		padding-right: 35px;
-		font-size: 30px;
+		font-size: 25px;
 	}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
 	.titleBar img {
-		width: 140px;
+		width: 130px;
 	}
 
 	.titleBar nav li {
 		padding-right: 40px;
-		font-size: 37px;
+		font-size: 32px;
 	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 	.titleBar img {
-		width: 175px;
+		width: 150px;
 	}
 
 	.titleBar nav li {
 		padding-right: 45px;
-		font-size: 45px;
+		font-size: 35px;
 	}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 	.titleBar img {
-		width: 200px;
+		width: 160px;
 	}
 
 	.titleBar nav li {
 		padding-right: 50px;
-		font-size: 51px;
+		font-size: 40px;
 	}
 }

@@ -1,17 +1,17 @@
-function searchBST() {
+function searchAVL() {
   let flag = 0;
-  document.getElementById("myBstCanvas").scrollIntoView();
+  document.getElementById("myAvlCanvas").scrollIntoView();
   let n = document.getElementById("search").value;
   n = Number.parseInt(n);
 
-  const draw = document.getElementById("myBstCanvas");
+  const draw = document.getElementById("myAvlCanvas");
   const ctx = draw.getContext("2d");
   ctx.clearRect(0, 0, 20000, 6000);
 
   ctx.beginPath();
-  ctx.arc(fBST.root.ld, fBST.root.height, 20, 0, 2 * Math.PI);
+  ctx.arc(fHB.root.ld, fHB.root.height, 20, 0, 2 * Math.PI);
 
-  if (fBST.root.data == n) {
+  if (fHB.root.data == n) {
     flag = 1;
     ctx.fillStyle = "blue";
     ctx.fill();
@@ -21,21 +21,21 @@ function searchBST() {
 
   ctx.fillStyle = "black";
   ctx.font = "15px Roman";
-  ctx.fillText(fBST.root.data, fBST.root.ld - 6, fBST.root.height);
+  ctx.fillText(fHB.root.data, fHB.root.ld - 6, fHB.root.height);
 
-  for (let i = 1; i < BST.length; i++) {
-    let save = fBST.root,
-      pred = fBST.root,
+  for (let i = 1; i < AVL.length; i++) {
+    let save = fHB.root,
+      pred = fHB.root,
       d;
 
     while (true) {
-      if (BST[i] == save.data) {
+      if (AVL[i] == save.data) {
         break;
-      } else if (Number.parseInt(BST[i]) < Number.parseInt(save.data)) {
+      } else if (Number.parseInt(AVL[i]) < Number.parseInt(save.data)) {
         pred = save;
         save = save.left;
         d = -1;
-      } else if (Number.parseInt(BST[i]) > Number.parseInt(save.data)) {
+      } else if (Number.parseInt(AVL[i]) > Number.parseInt(save.data)) {
         pred = save;
         save = save.right;
         d = 1;
@@ -44,7 +44,7 @@ function searchBST() {
 
     ctx.beginPath();
     ctx.arc(save.ld, save.height, 20, 0, 2 * Math.PI);
-    if (BST[i] == n) {
+    if (AVL[i] == n) {
       flag = 1;
       ctx.fillStyle = "blue";
       ctx.fill();

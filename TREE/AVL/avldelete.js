@@ -1,7 +1,7 @@
 function del() {
   let newArr = [];
   let flag = 0;
-  document.getElementById("myBstCanvas").scrollIntoView();
+  document.getElementById("myAvlCanvas").scrollIntoView();
   let str = document.getElementById("inputBox").value;
   let delval = document.getElementById("delval").value;
   delval = Number.parseInt(delval);
@@ -9,20 +9,21 @@ function del() {
   if (str == "") {
     alert("Can't Delete Node Before insertion");
   } else {
-    for (let i = 0; i < BST.length; i++) {
-      if (BST[i] == delval) {
+    for (let i = 0; i < AVL.length; i++) {
+      if (AVL[i] == delval) {
         flag = 1;
       } else {
-        newArr.push(BST[i]);
+        newArr.push(AVL[i]);
       }
     }
+
     if (flag == 0) {
       alert("Node Not Found In Tree!");
       document.getElementById("delval").value = "";
       return;
     }
 
-    let x = document.getElementById("myBstCanvas");
+    let x = document.getElementById("myAvlCanvas");
     let ctx = x.getContext("2d");
     ctx.clearRect(0, 0, 20000, 6000);
 
@@ -31,25 +32,26 @@ function del() {
       fstr = fstr + newArr[v] + " ";
     }
 
-    fBST.delete(delval, fBST.root);
+    fHB.HBdelete(delval, fHB.root);
+
     document.getElementById("inputBox").value = fstr;
 
-    if (fBST.root === null) {
-      fBST = null;
+    if (fHB.root === null) {
+      fHB = null;
       document.getElementById("inputBox").value = "";
       document.getElementById("delval").value = "";
-
       return;
     }
 
-    BST = [];
-    fBST.setBST(fBST.root);
-    fBST.setHeight(fBST.root);
+    AVL = [];
+    fHB.setAVL(fHB.root);
+    fHB.setHeight();
 
-    BSTleftDistance = [];
-    BSTleftDistance = setLeftDistance(BST);
+    HBleftDistance = [];
+    HBleftDistance = setLeftDistance(AVL);
+    fHB.setDistance(AVL, HBleftDistance);
 
-    draw(fBST, BST, "myBstCanvas");
+    draw(fHB, AVL, "myAvlCanvas");
 
     document.getElementById("delval").value = "";
   }

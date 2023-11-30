@@ -1,0 +1,189 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	background-color: rgb(214, 220, 255);
+	position: fixed;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+.sqbox {
+	height: 80%;
+	width: 100%;
+}
+
+.sqbox .inputBoxes {
+	width: 100%;
+	background-color: rgb(33, 46, 80);
+	height: 13.8%;
+	display: flex;
+	margin-top: -1.5px;
+	justify-content: center;
+	align-items: center;
+	font-display: row;
+	overflow: hidden;
+}
+
+.sqbox .inputBoxes>div {
+	margin: 0px 4px 0px 7px;
+	height: 60%;
+	width: 15%;
+	background-color: red;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+	margin: 0;
+}
+
+input::placeholder {
+	color: black;
+	text-align: left;
+}
+
+.inputBoxes>div>input,
+.inputBoxes>div>button {
+	border-radius: 0px;
+	width: 50%;
+	outline: none;
+	border: none;
+	float: left;
+	border-radius: 0px;
+	height: 100%;
+	font-weight: 700;
+	font-size: 21px;
+	text-align: center;
+}
+
+.inputBoxes>div>button {
+	background-color: maroon;
+	color: white;
+	overflow: hidden;
+
+}
+
+.inputBoxes div:last-child button {
+	width: 100%;
+}
+
+.sqbox .x {
+	overflow: hidden;
+}
+
+/*Media query start*/
+
+@media only screen and (max-width: 600px) {
+
+	.sqbox .inputBoxes {
+		height: 8%;
+	}
+
+	.sqbox .inputBoxes>div {
+		height: 42%;
+	}
+
+	.sqbox .inputBoxes .enq::after {
+		content: "EnQ";
+	}
+
+	.inputBoxes>div>input,
+	.inputBoxes>div>button {
+		font-size: 11px;
+	}
+
+	.sqbox .inputBoxes .deq::after {
+		content: "DeQ";
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	.sqbox .inputBoxes {
+		height: 10%;
+	}
+
+	.inputBoxes>div>input,
+	.inputBoxes>div>button {
+		font-size: 10px;
+	}
+
+	.sqbox .inputBoxes .enq::after {
+		content: "EnQueue";
+	}
+
+	.sqbox .inputBoxes .deq::after {
+		content: "DeQueue";
+	}
+
+	.sqbox .inputBoxes {
+		height: 6%;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+	.inputBoxes>div>input,
+	.inputBoxes>div>button {
+		font-size: 14px;
+	}
+
+	.sqbox .inputBoxes .enq::after {
+		content: "EnQueue";
+	}
+
+	.sqbox .inputBoxes .deq::after {
+		content: "DeQueue";
+	}
+
+	.sqbox .inputBoxes {
+		height: 7.8%;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+	.inputBoxes>div>input,
+	.inputBoxes>div>button {
+		font-size: 18px;
+	}
+
+	.sqbox .inputBoxes .enq::after {
+		content: "EnQueue";
+	}
+
+	.sqbox .inputBoxes .deq::after {
+		content: "DeQueue";
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+
+	.inputBoxes>div>input,
+	.inputBoxes>div>button {
+		font-size: 21.8px;
+	}
+
+	.sqbox .inputBoxes .enq::after {
+		content: "EnQueue";
+	}
+
+	.sqbox .inputBoxes .deq::after {
+		content: "DeQueue";
+	}
+}
+
+/*Media query end*/
