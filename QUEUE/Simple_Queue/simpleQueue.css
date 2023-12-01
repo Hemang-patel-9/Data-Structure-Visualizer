@@ -103,6 +103,10 @@ input::placeholder {
 	flex-direction: row;
 	margin: 2px;
 }
+.x .queue>div:nth-child(even)
+{
+	flex-direction: row-reverse;
+}
 
 .x .queue>div>.item {
 	position: relative;
