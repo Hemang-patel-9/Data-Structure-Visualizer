@@ -61,6 +61,7 @@ document.getElementById("btnSize").addEventListener("click", () => {
     if (size <= 50 && size >= 5) {
       b1 = new Stack(size);
       alert("Created and empty stack with size " + size + " succeesfully");
+      setSize(size);
     } else {
       alert(
         "can't make stack for that size.\nMake stack with less than 50 and greater than 4"
@@ -117,17 +118,29 @@ document.getElementById("btnChange").addEventListener("click", () => {
     let position = document.getElementById("position").value;
     let newval = document.getElementById("newvalue").value;
     if (position != "" && newval != "") {
-      let tmp=b1.changeStack(position, newval);
+      let tmp = b1.changeStack(position, newval);
       alert(tmp);
       console.log(tmp);
-      if(tmp!=undefined)
-      {
+      if (tmp != undefined) {
         changeDiv(position, newval);
       }
     }
   }
 });
 /**Clicking events end */
+
+function setSize(size) {
+  let outerBox = document.getElementById("outer");
+  let box = document.getElementById("inner");
+  outerBox.style.height = `${size * 7 + 30}vh`;
+  box.style.height = `${size * 7}vh`;
+  box.style.margin = "100px 2px 2px 2px";
+  box.style.border = "2px solid black";
+  box.style.borderRadius = "0px 0px 20px 20px";
+  box.style.padding = "1px 2px 3px 2px";
+
+  alert(box.clientHeight);
+}
 
 function makeDiv(data) {
   divID++;
@@ -146,10 +159,10 @@ function makeDiv(data) {
 async function animationForPush(id) {
   console.log("push performing init");
   perfoming = true;
-  let t = document.getElementById("inner").clientHeight;
-  //300
+  let t = document.getElementById("outer").clientHeight;
+  let minus = document.getElementById(id).clientHeight;
   let set = document.getElementById(id);
-  t *= -1;//-300
+  t *= -1; //-300
   t += Number.parseInt(set.clientHeight) * id;
   while (t <= 0) {
     await sleep(0.5);
@@ -168,7 +181,7 @@ async function delDiv() {
   perfoming = true;
   console.log("pop performing init");
   if (divID > 0) {
-    let t = document.getElementById("inner").clientHeight;
+    let t = document.getElementById("outer").clientHeight;
     let set = document.getElementById(divID);
     t *= -1;
     t += Number.parseInt(set.clientHeight) * divID;
