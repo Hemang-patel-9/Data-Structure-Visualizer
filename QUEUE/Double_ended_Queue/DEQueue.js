@@ -172,7 +172,12 @@ function setDeleteLast(id, val) {
 
   if (deq.frontIndex == deq.rearIndex) {
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
+<<<<<<< HEAD
   } else {
+=======
+  }
+  else {
+>>>>>>> 43bfebcd3ebb8143355703ca96932e652577cc3f
     parent.innerHTML = `${val}<div class='position' id='rear'>rear</div>`;
   }
 }
