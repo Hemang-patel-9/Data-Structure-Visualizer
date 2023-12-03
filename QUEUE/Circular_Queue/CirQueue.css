@@ -127,7 +127,6 @@ input::placeholder {
 	border-radius: 8px;
 	border-color: transparent;
 	outline: none;
-	overflow: hidden;
 }
 
 .x .queue>div>.item .position {
@@ -148,13 +147,12 @@ input::placeholder {
 	animation-direction: normal;
 	animation-fill-mode: forwards;
 	border-radius: 10px 10px 0px 0px;
-	overflow: hidden;
 }
 
 .x .queue>div>.item .both {
 	position: absolute;
 	background-color: rgb(47, 88, 119);
-	color: white;
+	color: black;
 	border-radius: 10px 10px 0px 0px;
 	width: 89%;
 	z-index: 99;
@@ -164,7 +162,6 @@ input::placeholder {
 	animation-duration: 1.3s;
 	animation-direction: normal;
 	animation-fill-mode: forwards;
-	overflow: hidden;
 }
 
 .x .queue>div>.item .both .innerboth {
@@ -175,7 +172,6 @@ input::placeholder {
 	float: left;
 	height: 100%;
 	width: 50%;
-	overflow: hidden;
 }
 @keyframes queue {
 	from {

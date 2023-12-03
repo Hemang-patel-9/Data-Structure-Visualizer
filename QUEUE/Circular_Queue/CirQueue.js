@@ -104,7 +104,7 @@ document.getElementById("btnSize").addEventListener("click", () => {
 
 document.getElementById("btnEnq").addEventListener("click", () => {
   let val = document.getElementById("inputEnq").value;
-  if (val != "") {
+  if (val != "" && val<=99999) {
     q1.enqueue(val);
     document.getElementById("inputEnq").value = "";
   }
@@ -150,6 +150,7 @@ function setRear(id, val) {
   }
   let parent = document.getElementById(`item${id}`);
   if (q1.frontIndex === q1.rearIndex) {
+    alert('reached in equal cond.');
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
     isEqual = true;
   } else {

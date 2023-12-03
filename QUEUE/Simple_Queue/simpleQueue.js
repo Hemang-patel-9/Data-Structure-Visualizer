@@ -1,5 +1,5 @@
 let q1 = null;
-let isEqual=false;
+let isEqual = false;
 class Queue {
   constructor(s) {
     this.queue = [];
@@ -23,16 +23,26 @@ class Queue {
     console.log("ront = " + this.frontIndex + "\nrear = " + this.rearIndex);
   }
   dequeue() {
-    if (this.frontIndex == this.rearIndex + 1) {
+    if (
+      this.frontIndex == this.rearIndex + 1 ||
+      (this.frontIndex == this.rearIndex && this.frontIndex == 0))
+    {
       alert("Queue Underflow");
-    } else {
-      this.frontIndex++;
-      this.queue.shift();
-      if (this.frontIndex != this.rearIndex + 1) {
-        setFront(this.frontIndex, this.queue[0]);
-      }
-      console.log(this.queue);
+      return;
     }
+    if (this.frontIndex == this.rearIndex) {
+      document.getElementById(`item${this.frontIndex + 1}`).innerHTML = "";
+      this.frontIndex = 0;
+      this.rearIndex = 0;
+      this.queue.pop();
+      return;
+    }
+    this.frontIndex++;
+    this.queue.shift();
+    if (this.frontIndex != this.rearIndex + 1) {
+      setFront(this.frontIndex, this.queue[0]);
+    }
+    console.log(this.queue);
     console.log("front = " + this.frontIndex + "\nrear = " + this.rearIndex);
   }
 }
@@ -75,7 +85,9 @@ document.getElementById("btnEnq").addEventListener("click", () => {
 });
 
 document.getElementById("btnDeq").addEventListener("click", () => {
-  document.getElementById(`item${q1.frontIndex}`).innerHTML = "";
+  if (q1.frontIndex != 0) {
+    document.getElementById(`item${q1.frontIndex}`).innerHTML = "";
+  }
   q1.dequeue();
 });
 
@@ -85,7 +97,7 @@ function displayQueue(id, value) {
   }
 }
 function setRear(id, val) {
-  if (q1.frontIndex != q1.rearIndex) {
+  if (q1.frontIndex != q1.rearIndex && q1.frontIndex != 0) {
     document.getElementById("rear").remove();
   }
   let parent = document.getElementById(`item${id}`);
@@ -93,16 +105,15 @@ function setRear(id, val) {
   if (q1.frontIndex === q1.rearIndex) {
     console.log("same indexes here");
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
-    isEqual=true;
+    isEqual = true;
   } else {
-    if(isEqual==true)
-    {
-      console.log(q1.frontIndex+" is a front man");
-      console.log("Arra is "+q1.queue[0]);
-      let p=document.getElementById(`item${q1.frontIndex}`);
+    if (isEqual == true) {
+      console.log(q1.frontIndex + " is a front man");
+      console.log("Arra is " + q1.queue[0]);
+      let p = document.getElementById(`item${q1.frontIndex}`);
       p.innerHTML = `${q1.queue[0]}<div class='position' id='front'>front</div>`;
     }
-    document.getElementById('front').setAttribute('class','position');
+    document.getElementById("front").setAttribute("class", "position");
     parent.innerHTML = `${val}<div class='position' id='rear'>rear</div>`;
   }
 }

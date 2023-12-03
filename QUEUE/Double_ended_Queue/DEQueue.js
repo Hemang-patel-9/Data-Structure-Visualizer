@@ -162,6 +162,12 @@ function setInsertFirst(id, val) {
 
   let parent = document.getElementById(`item${id}`);
 
+  if (isEqual == true) {
+    document.getElementById(
+      `item${id + 1}`
+    ).innerHTML = `${deq.dequeue[1]}<div class='position' id='rear'>rear</div>`;
+    isEqual = false;
+  }
   parent.innerHTML = `${val}<div class='position' id='front'>front</div>`;
 }
 
@@ -170,7 +176,8 @@ function setDeleteLast(id, val) {
   document.getElementById(`item${id + 1}`).innerHTML = "";
   let parent = document.getElementById(`item${id}`);
 
-  if (deq.frontIndex == deq.rearIndex) {
+  if (deq.frontIndex === deq.rearIndex) {
+    isEqual=true;
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
   } else {
     parent.innerHTML = `${val}<div class='position' id='rear'>rear</div>`;
@@ -183,12 +190,9 @@ function setDeleteFirst(id, val) {
 
   document.getElementById(`item${id - 1}`).innerHTML = "";
   if (deq.frontIndex === deq.rearIndex) {
+    isEqual=true;
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
   } else {
     parent.innerHTML = `${val}<div class='position' id='front'>front</div>`;
   }
 }
-// function printQ() {
-//   console.log(deq.dequeue);
-//   console.log("front " + deq.frontIndex + "\nrear " + deq.rearIndex);
-// }
