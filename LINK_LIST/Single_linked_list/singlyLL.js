@@ -1,6 +1,8 @@
 //needed variables
 let sl = null;
 let listCount = Number.parseInt(0);
+let row_num = 0;
+let arr = [];
 class LinkedList {
   constructor(n) {
     this.head = null;
@@ -12,6 +14,8 @@ class LinkedList {
     let node = new LinkedList(val);
     if (this.head === null) {
       this.head = node;
+      arr.push(val);
+      console.log(arr);
       return;
     }
     let ptr = this.head;
@@ -19,11 +23,15 @@ class LinkedList {
       if (val > ptr.data && val < ptr.link.data) {
         node.link = ptr.link;
         ptr.link = node;
+        arr.push(val);
+        console.log(arr);
         return;
       }
       ptr = ptr.link;
     }
     ptr.link = node;
+    arr.push(val);
+    console.log(arr);
   }
 
   delete(val) {
@@ -38,6 +46,8 @@ class LinkedList {
     while (ptr.link !== null) {
       if (ptr.data == val) {
         pred.link = ptr.link;
+        arr.splice(arr.indexOf(val), 1);
+        console.log(arr);
         return;
       }
       pred = ptr;
@@ -46,15 +56,17 @@ class LinkedList {
     alert("Node not found");
   }
 
-  // search(n) {
-  //     let ptr = this.head;
+  search(n) {
+      let ptr = this.head;
 
-  //     while (ptr !== null) {
-  //         if (ptr.data == n) {
-
-  //         }
-  //     }
-  // }
+      while (ptr !== null) {
+          if (ptr.data == n) {
+            alert("found in list");
+            break;
+          }
+      }
+      alert("Node not found in list!");
+  }
 
   printLL() {
     let ptr = this.head,
@@ -69,67 +81,61 @@ class LinkedList {
   }
 }
 sl = new LinkedList();
-let row_num=0;
-
 //clicking event
 document.getElementById("btnSearch").addEventListener("click", () => {
   let val = document.getElementById("searchInput").value;
-  alert("click search button -> " + val);
+  sl.search(val);
+  val="";
 });
 document.getElementById("btnInsert").addEventListener("click", () => {
-  let val = document.getElementById("insertInput").value;
-  let parent = document.getElementById("linked-list-container");
-  sl.insert(val);
-  listCount++;
-  if(listCount==1 || listCount ==9)
-  {
-    row_num+=Number.parseInt(1);
-    parent.innerHTML+=`<div class="row" id="row${row_num}"></div>`;
+  let val = document.getElementById("insertInput");
+  if (val != "" && val != NaN) {
+    sl.insert(val.value);
   }
-  if(listCount>0 && listCount<=7)
-  {
-    let old_row=document.getElementById(`row${row_num}`);
-    old_row.innerHTML += `<div class="item"><div class="value">${val}</div><div class="link-horizontal"><div></div><div></div></div></div>`;
-  }
-  else if (listCount == 8) {
-    let old_row=document.getElementById(`row${row_num}`);
-    old_row.innerHTML += `<div class="item"><div class="value">${val}</div><div class="link-vertical"><div></div><div></div></div><div>`;
-  } else if (listCount > 8 && listCount <= 15) {
-    let old_row=document.getElementById(`row${row_num}`);
-    old_row.innerHTML += `<div class="item"><div class="link-horizontal" style="rotate: 180deg;"><div></div><div></div></div><div class="value">${val}</div><div>`;
-  } else if (listCount == 16) {
-    let old_row=document.getElementById(`row${row_num}`);
-    old_row.innerHTML += `<div class="item"><div class="link-vertical"><div></div><div></div></div><div class="value">${val}</div></div>`;
-    listCount = 0;
-  }
+  val.value="";
+  displayNodes();
 });
 document.getElementById("btnDelete").addEventListener("click", () => {
-  let val = document.getElementById("deleteInput").value;
-  alert("click delete button -->" + val);
+  let val = document.getElementById("deleteInput");
+  sl.delete(val.value);
+  displayNodes();
+  val.value="";
 });
 
-///information for displaying node
-/**
- * 1)left right
- * 		1)[x|->]default right indicating
- * 		2)[<-|x] for left indicate rotate 180deg to class (.link-horizontal) and put .value division at bottom
- * 		///this is my division 
- * 				<div class="item">
-						<div class="value">2</div>
-						<div class="link-horizontal">
-							<div></div>
-							<div></div>
-						</div>
-				</div>
- * 		1)[x|->]default down right side indicating
- * 		2)[<-|x] for down left side indicate just change the division place
- * 		///this is my division 
- * 				<div class="item">
-						<div class="value">2</div>
-						<div class="link-vertical">
-							<div></div>
-							<div></div>
-						</div>
-				</div>
- * 
- */
+
+
+function displayNodes() {
+  let parent = document.getElementById("linked-list-container");
+  parent.innerHTML = "";
+  listCount = 0;
+  row_num = 0;
+  for (let a = 0; a < arr.length; a++) {
+    listCount++;
+    if (listCount == 1 || listCount == 9) {
+      row_num++;
+      parent.innerHTML += `<div class="row" id="row${row_num}"></div>`;
+    }
+    if (a == arr.length - 1) {
+      if (row_num % 2 == 1) {
+        let old_row = document.getElementById(`row${row_num}`);
+        old_row.innerHTML += `<div class="item"><div class="value">${arr[a]}</div><div class="null"><div></div></div><div>`;
+      } else {
+        let old_row = document.getElementById(`row${row_num}`);
+        old_row.innerHTML += `<div class="item"><div class="null"><div></div></div><div class="value">${arr[a]}</div></div>`;
+      }
+    } else if (listCount > 0 && listCount <= 7) {
+      let old_row = document.getElementById(`row${row_num}`);
+      old_row.innerHTML += `<div class="item" id="item${a}"><div class="value">${arr[a]}</div><div class="link-horizontal"><div></div><div></div></div></div>`;
+    } else if (listCount == 8) {
+      let old_row = document.getElementById(`row${row_num}`);
+      old_row.innerHTML += `<div class="item" id="item${a}"><div class="value">${arr[a]}</div><div class="link-vertical"><div></div><div></div></div><div>`;
+    } else if (listCount > 8 && listCount <= 15) {
+      let old_row = document.getElementById(`row${row_num}`);
+      old_row.innerHTML += `<div class="item" id="item${a}"><div class="link-horizontal" style="rotate: 180deg;"><div></div><div></div></div><div class="value">${arr[a]}</div><div>`;
+    } else if (listCount == 16) {
+      let old_row = document.getElementById(`row${row_num}`);
+      old_row.innerHTML += `<div class="item" id="item${a}"><div class="link-vertical"><div></div><div></div></div><div class="value">${arr[a]}</div></div>`;
+      listCount = 0;
+    }
+  }
+}

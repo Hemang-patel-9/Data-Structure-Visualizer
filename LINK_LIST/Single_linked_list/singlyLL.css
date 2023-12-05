@@ -91,19 +91,20 @@ input::placeholder {
 	flex-direction: column;
 	overflow-y: scroll;
 }
-.sllbox .linked-list-container .row
-{
+
+.sllbox .linked-list-container .row {
 	display: flex;
 	align-items: center;
 	flex-direction: row;
 	gap: 10px;
 	padding: 0px 10px;
 }
-.sllbox .linked-list-container .row:nth-child(even)
-{
+
+.sllbox .linked-list-container .row:nth-child(even) {
 	flex-direction: row-reverse;
 	padding-right: 30px;
 }
+
 .sllbox .linked-list-container .row .item {
 	height: 50px;
 	width: calc(12.5% - 5px);
@@ -154,7 +155,6 @@ input::placeholder {
 .sllbox .linked-list-container .row .item .link-vertical {
 	float: left;
 	position: relative;
-	float: left;
 	width: 40%;
 	height: 200%;
 	background-image: url(../../IMAGES/down_arrow.png);
@@ -162,17 +162,37 @@ input::placeholder {
 	background-repeat: no-repeat;
 	background-size: 80% 75%;
 }
+.sllbox .linked-list-container .row .item .null
+{
+	width: 40%;
+	height: 100%;
+	float: left;
+	position: relative;
+	background-image: url(../../IMAGES/null_link.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 165% 150%;
+}
+.sllbox .linked-list-container .row .item .null>div
+{
+	height: 100%;
+	width: 100%;
+	mix-blend-mode: darken;
+	background-color: var(--link_color);
+	border: 1px solid black;
+}
 
 .sllbox .linked-list-container .row .item .link-vertical>div {
 	height: 50%;
 	width: 100%;
 	mix-blend-mode: darken;
 }
-.sllbox .linked-list-container .row .item .link-vertical>div:first-child
-{
+
+.sllbox .linked-list-container .row .item .link-vertical>div:first-child {
 	border: 1px solid black;
 	background-color: var(--link_color);
 }
+
 
 
 @media only screen and (max-width: 600px) {
