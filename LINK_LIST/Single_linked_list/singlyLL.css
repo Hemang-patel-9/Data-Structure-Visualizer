@@ -110,6 +110,7 @@ input::placeholder {
 	width: calc(12.5% - 5px);
 	float: left;
 	margin-bottom: 40px;
+	transition: 1s all ease;
 }
 
 .sllbox .linked-list-container .row .item .value {
