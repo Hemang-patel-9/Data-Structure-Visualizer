@@ -123,17 +123,19 @@ function Convert() {
 
   console.log(choice1 + " " + choice2);
   // if (choice1 == "Infix" && choice2 == "Prefix") {
-    alert("called");
-    let table = document.getElementById("table");
-    let itof = new InfixToPrefix();
-    table.style.display = "grid";
-    table.innerHTML =
-    `<thead><tr><th>Input<br/>Symbol</th><th>Stack</th><th>Reverse Polish Expression</th><th>Rank</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
-    tableBodyString = "";
-    itof.infixToPrefix(expression);
+    if(expression!=null){
+
+      alert("called");
+      let table = document.getElementById("table");
+      let itof = new InfixToPrefix();
+      table.style.display = "grid";
+      table.innerHTML =
+      `<thead><tr><th>Input<br/>Symbol</th><th>Stack</th><th>Reverse Polish Expression</th><th>Rank</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
+      tableBodyString = "";
+      itof.infixToPrefix(expression);
+    }
 
   // }
-  //code write here
 }
 
 function DrawTable(a) {
