@@ -4,34 +4,33 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Simple Queue Data Structure</title>
+	<title>Covertion by Stack</title>
 	<link rel="icon" href="../IMAGES/Infic-Prefix-Postfix-removebg-preview.png" />
-	<link rel="stylesheet" href="./sum.css" />
-	<link rel="stylesheet" href="../heading.css" />
-	<link rel="stylesheet" href="../about.css" />
-	<link rel="stylesheet" href="../titlebar.css" />
+	<link rel="stylesheet" href="./convertor.css" />
+	<link rel="stylesheet" href="../../heading.css" />
+	<link rel="stylesheet" href="../../titlebar.css" />
 </head>
 
 <body>
 	<div class="container">
 		<div class="titleBar">
-			<img src="../IMAGES/DU_Logo.png" alt="logo not found" />
+			<img src="../../IMAGES/DU_Logo.png" alt="logo not found" />
 			<nav>
 				<ul>
-					<a href="../index.html">
+					<a href="../../index.html">
 						<li>Home</li>
 					</a>
-					<a href="../about.html">
+					<a href="../../about.html">
 						<li>About Us</li>
 					</a>
 				</ul>
 			</nav>
 		</div>
-		<div class="heading" style="font-weight: 900;">Prefix / Postfix</div>
+		<div class="heading" style="font-weight: 900;">Convertion Using Stack</div>
 		<div class="sumbox">
 			<div class="inputBox">
 				<div>
-					<div><input type="text" id="inputBox" placeholder="Enter Expression..." autofocus autocomplete="off"/></div>
+					<div><input type="text" id="inputBox" placeholder="Enter Expression..." /></div>
 					<div>
 						<select id="drpd1" onclick="selection()">
 							<option value="Infix">Infix</option>
@@ -44,17 +43,19 @@
 							<option value="Infix">Infix</option>
 							<option value="Prefix">Prefix</option>
 							<option value="Postfix">Postfix</option>
-					</select>
+						</select>
 					</div>
 					<div><button onclick="Convert()">C</button></div>
 				</div>
 			</div>
 			<div class="table">
-				<table id="table"></table>
+				<table class="table1" id="table"></table>
+				</br></br>
+				<table class="table2" id="table2"></table>
 			</div>
 		</div>
 	</div>
 </body>
 
 </html>
-<script src="./sum.js"></script>
+<script src="./convertor.js"></script>
