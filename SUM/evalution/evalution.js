@@ -10,6 +10,16 @@ function selection() {
 function Convert() {
 	let val = document.getElementById('inputBox').value;
 	val = val.trim();
+	if(choice=="Prefix" && (val[0]>=0 && val[0]<=9))
+	{
+		alert("Looking like a Postfix Expression!");
+		return;
+	}
+	else if (choice == "Postfix" && (val[0] == '+' || val[0] == '-' || val[0] == '*' || val[0] == '/' || val[0] == '$' || val[0] == '^'))
+	{
+		alert("Looking like a Prefix Expression");
+		return;
+	}
 	let arr = val.split(" ");
 	console.log("without filtered " + arr);
 	arr = arr.filter((n) => {
