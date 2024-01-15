@@ -23,7 +23,6 @@ class BinarySearchTree {
     this.root = null;
   }
   insert(data, data2) {
-    alert('inserted');
     //Creating new Node
     const newNode = new NodeCreate(data, data2);
 
@@ -53,9 +52,9 @@ class BinarySearchTree {
     else {
       newNode.stepStr.push(
         newNode.data +
-          " is Greater than " +
-          node.data +
-          ". So go to right subtree"
+        " is Greater than " +
+        node.data +
+        ". So go to right subtree"
       );
       if (node.right === null) {
         newNode.height += 50;
@@ -240,7 +239,7 @@ function CreateBinaryTree() {
   let inputvalue = document.getElementById("inputBox").value;
 
   if (inputvalue == "") {
-    alert("The Box is Empty!");
+    popup(false,"The Box is Empty!");
     fBST = null;
     return;
   }

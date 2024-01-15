@@ -67,6 +67,6 @@ function searchAVL() {
   }
 
   if (flag == 0) {
-    alert("Node not found in the tree");
+    popup(false,"Node not found in the tree");
   }
 }

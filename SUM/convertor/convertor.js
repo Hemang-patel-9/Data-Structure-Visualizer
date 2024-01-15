@@ -66,7 +66,7 @@ class Conversion {
       console.log("called " + this.stack);
     }
     if (this.rank != 1) {
-      alert("Invalid Expression !");
+      popup(false,"Invalid Expression !");
     }
     while (this.stack.length != 0) {
       if (this.stack[this.stack.length - 1] != '(' || this.stack[this.stack.length - 1] != ')') {
@@ -86,7 +86,11 @@ class Conversion {
     let stack = [];
 
     while (i < str.length) {
-      if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '$' || str[i] == '^') {
+      if (str[i] == ' ') {
+        i++;
+        continue;
+      }
+      else if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '$' || str[i] == '^') {
         oprand1 = stack.pop();
         oprand2 = stack.pop();
 
@@ -100,7 +104,7 @@ class Conversion {
       else {
         stack.push(str[i]);
       }
-
+      console.log(stack);
       tableBodyString += `<tr><td>${(i + 1) ?? "-"}</td><td>${str[i] ?? "-"}</td><td>${stack.join("") ?? "-"}</td></tr>`;
 
       i++;
@@ -174,7 +178,6 @@ class Conversion {
   }
 }
 
-
 document.getElementById("inputBox").addEventListener('change', (e) => {
   expression = e.target.value;
 });
@@ -216,12 +219,10 @@ function Convert() {
 
     if (choice1 == "Infix") {
       if (choice2 == "Postfix") {
-        alert("In->Post called");
         answerString = itof.infixToPostfix(expression, "post");
         tableBodyString += `<tr style="background-color:rgb(109, 129, 240);color:white;"><td colspan="4" style="width:100%;">Answer is = ${answerString}</td></tr>`
       }
       else if (choice2 == "Prefix") {
-        alert("In->Pre called");
         expression = expression.replaceAll('(', '_');
         expression = expression.replaceAll(')', '(');
         expression = expression.replaceAll('_', ')');
@@ -234,7 +235,6 @@ function Convert() {
     }
     else if (choice2 == "Infix") {
       if (choice1 == "Prefix") {
-        alert("Pre -> In Called");
         console.log(expression);
         expression = expression.replaceAll('(', '_');
         expression = expression.replaceAll(')', '(');
@@ -242,7 +242,6 @@ function Convert() {
         answerString = itof.postfixToInfix(expression.split("").reverse().join(""), "pre");
       }
       else if (choice1 == "Postfix") {
-        alert("Post -> In Called");
         console.log(expression);
         answerString = itof.postfixToInfix(expression, "post");
       }
@@ -250,7 +249,6 @@ function Convert() {
       table.innerHTML = `<thead><tr><th>Sr. No.</th><th>Input<br/>Symbol</th><th>Stack</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
     }
     else if (choice1 == "Prefix" && choice2 == "Postfix") {
-      alert("Pre -> Post called");
       console.log(expression);
       let infix = "", postfix = "";
       table2.style.display = "grid";
@@ -273,7 +271,6 @@ function Convert() {
       console.log(table2);
     }
     else if (choice1 == "Postfix" && choice2 == "Prefix") {
-      alert("Post -> Pre called");
       console.log(expression);
       let infix = "", prefix = "";
       table2.style.display = "grid";

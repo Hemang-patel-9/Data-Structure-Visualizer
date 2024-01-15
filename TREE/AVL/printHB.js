@@ -39,7 +39,6 @@ function PrintHB(node, a, i) {
     current += 20;
     ctx.fillText(save.stepStr[j], 10, current);
   }
-  current += 20;
   h = 20;
 
   for (j = 0; j <= i; j++) {
@@ -78,5 +77,5 @@ function PrintHB(node, a, i) {
 
     h += 50;
   }
-  current += h + 20;
+  current += h + 10;
 }

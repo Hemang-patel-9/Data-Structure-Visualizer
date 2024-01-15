@@ -18,7 +18,7 @@ class Stack {
       this.stack.push(data);
       makeDiv(data);
     } else {
-      alert("Stack overflow");
+      popup(false,"Stack is Overflow!");
     }
   }
 
@@ -29,7 +29,7 @@ class Stack {
       delDiv();
       return ele;
     } else {
-      alert("Stack is empty");
+      popup(false, "Stack is empty");
     }
   }
 
@@ -38,17 +38,16 @@ class Stack {
       let ele = this.stack[front - i + 1];
       return ele;
     } else {
-      alert("Stack underflow");
+      popup(false, "Stack is underflow!");
     }
   }
 
   changeStack(i, data) {
     if (Number.parseInt(front - i + 1) >= 0) {
-      alert(front);
       this.stack[front - i + 1] = data;
       return data;
     } else {
-      alert("Stack underflow");
+      popup(false, "Stack is underflow!")
     }
   }
 }
@@ -60,15 +59,15 @@ document.getElementById("btnSize").addEventListener("click", () => {
     document.getElementById("inner").innerHTML = "";
     if (size <= 50 && size >= 5) {
       b1 = new Stack(size);
-      alert("Created and empty stack with size " + size + " succeesfully");
+      popup(true,"Created and empty stack with size " + size + " succeesfully");
       setSize(size);
     } else {
-      alert(
+      popup(false,
         "can't make stack for that size.\nMake stack with less than 50 and greater than 4"
       );
     }
   } else {
-    alert("Stack is Aready Exist!");
+    popup(false,"Stack is Aready Exist!");
     if (
       confirm("Are you sure you want to make new stack and clear all progress?")
     ) {
@@ -81,7 +80,7 @@ document.getElementById("btnSize").addEventListener("click", () => {
 });
 document.getElementById("btnPush").addEventListener("click", () => {
   if (perfoming === true) {
-    alert("let system complete the running task.");
+    popup(false,"let system complete the running task.");
   } else {
     let val = document.getElementById("push").value;
     if (val != "") {
@@ -92,14 +91,14 @@ document.getElementById("btnPush").addEventListener("click", () => {
 });
 document.getElementById("btnPop").addEventListener("click", () => {
   if (perfoming === true) {
-    alert("let system complete the running task.");
+    popup(false,"let system complete the running task.");
   } else {
     b1.popStack();
   }
 });
 document.getElementById("btnPeep").addEventListener("click", () => {
   if (perfoming === true) {
-    alert("let system complete the running task.");
+    popup(false,"let system complete the running task.");
   } else {
     let val = document.getElementById("peep").value;
     if (val != "") {
@@ -113,13 +112,12 @@ document.getElementById("btnPeep").addEventListener("click", () => {
 });
 document.getElementById("btnChange").addEventListener("click", () => {
   if (perfoming === true) {
-    alert("let system complete the running task.");
+    popup(false,"let system complete the running task.");
   } else {
     let position = document.getElementById("position").value;
     let newval = document.getElementById("newvalue").value;
     if (position != "" && newval != "") {
       let tmp = b1.changeStack(position, newval);
-      alert(tmp);
       console.log(tmp);
       if (tmp != undefined) {
         changeDiv(position, newval);
@@ -138,8 +136,6 @@ function setSize(size) {
   box.style.border = "2px solid black";
   box.style.borderRadius = "0px 0px 20px 20px";
   box.style.padding = "1px 2px 3px 2px";
-
-  alert(box.clientHeight);
 }
 
 function makeDiv(data) {
@@ -194,7 +190,7 @@ async function delDiv() {
     document.getElementById(divID).remove();
     divID--;
   } else {
-    alert("can't pop");
+    popup(false,"can't pop the element from stack.");
   }
   perfoming = false;
   console.log("pop performing terminated");

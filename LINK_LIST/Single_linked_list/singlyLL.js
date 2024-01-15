@@ -42,7 +42,7 @@ class LinkedList {
   delete(val) {
     val = Number.parseInt(val);
     if (this.head === null) {
-      alert("can't delete from empty linkedlist");
+      popup(false,"can't delete from empty linkedlist");
       return;
     }
 
@@ -66,7 +66,7 @@ class LinkedList {
       console.log(arr);
       return;
     }
-    alert("Node not found");
+    popup(false,"Node not found");
   }
 
   async search(n) {
@@ -80,7 +80,6 @@ class LinkedList {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === Number.parseInt(n)) {
         await setColor(item, oddrow,"lightgreen");
-        alert("found in list");
         flag = true;
         displayNodes();
         break;
@@ -103,7 +102,7 @@ class LinkedList {
     }
 
     if (flag == false) {
-      alert("Node not found in list!");
+      popup(false,"Node not found in list!");
     }
 
     async function setColor(item, oddrow,last_color) {
@@ -157,6 +156,10 @@ class LinkedList {
 sl = new LinkedList();
 //clicking event
 document.getElementById("btnSearch").addEventListener("click", () => {
+  if(sl.head===null){
+    popup(false,"Can't search before insertion");
+    return;
+  }
   let val = document.getElementById("searchInput").value;
   sl.search(Number.parseInt(val));
   val = "";

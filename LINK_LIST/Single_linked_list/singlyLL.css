@@ -111,13 +111,13 @@ input::placeholder {
 	float: left;
 	margin-bottom: 40px;
 	transition: 1s all ease;
+	font-size: 25px;
 }
 
 .sllbox .linked-list-container .row .item .value {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 25px;
 	height: 100%;
 	width: 40%;
 	border: 1px;
@@ -126,6 +126,8 @@ input::placeholder {
 	border-style: solid;
 	float: left;
 	background-color: var(--link_color);
+	overflow-y: hidden;
+	overflow-x: auto;
 }
 
 .sllbox .linked-list-container .row .item .link-horizontal {
@@ -163,8 +165,8 @@ input::placeholder {
 	background-repeat: no-repeat;
 	background-size: 80% 75%;
 }
-.sllbox .linked-list-container .row .item .null
-{
+
+.sllbox .linked-list-container .row .item .null {
 	width: 40%;
 	height: 100%;
 	float: left;
@@ -174,8 +176,8 @@ input::placeholder {
 	background-repeat: no-repeat;
 	background-size: 165% 150%;
 }
-.sllbox .linked-list-container .row .item .null>div
-{
+
+.sllbox .linked-list-container .row .item .null>div {
 	height: 100%;
 	width: 100%;
 	mix-blend-mode: darken;
@@ -213,6 +215,15 @@ input::placeholder {
 		padding-right: 27px;
 		font-size: 20px;
 	}
+
+	.sllbox .linked-list-container .row .item {
+		height: 3px;
+		font-size: 10px;
+	}
+
+	.sllbox .linked-list-container .row .item .link-horizontal {
+		background-size: 50% 79%;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -221,12 +232,30 @@ input::placeholder {
 		height: 36%;
 		width: 22%;
 	}
+
+	.sllbox .linked-list-container .row .item {
+		height: 25px;
+		font-size: 12px;
+	}
+
+	.sllbox .linked-list-container .row .item .link-horizontal {
+		background-size: 50% 50%;
+	}
 }
 
 @media only screen and (min-width: 600px) {
 	.sllbox .inputBoxes>div {
 		height: 45%;
 		width: 20%;
+	}
+
+	.sllbox .linked-list-container .row .item {
+		height: 36px;
+		font-size: 22px;
+	}
+
+	.sllbox .linked-list-container .row .item .link-horizontal {
+		background-size: 54% 84%;
 	}
 }
 
@@ -236,6 +265,15 @@ input::placeholder {
 		height: 55%;
 		width: 19%;
 	}
+
+	.sllbox .linked-list-container .row .item {
+		height: 46px;
+		font-size: 22px;
+	}
+
+	.sllbox .linked-list-container .row .item .link-horizontal {
+		background-size: 62.4% 89%;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -244,6 +282,15 @@ input::placeholder {
 		height: 60%;
 		width: 18%;
 	}
+
+	.sllbox .linked-list-container .row .item {
+		height: 50px;
+		font-size: 25px;
+	}
+
+	.sllbox .linked-list-container .row .item .link-horizontal {
+		background-size: 71% 96%;
+	}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -251,5 +298,14 @@ input::placeholder {
 	.sllbox .inputBoxes>div {
 		height: 70%;
 		width: 18%;
+	}
+
+	.sllbox .linked-list-container .row .item {
+		height: 50px;
+		font-size: 25px;
+	}
+
+	.sllbox .linked-list-container .row .item .link-horizontal {
+		background-size: 75% 100%;
 	}
 }

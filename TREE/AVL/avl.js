@@ -70,9 +70,9 @@ class HBTree {
     else {
       newNode.stepStr.push(
         newNode.data +
-          " is Greater than " +
-          node.data +
-          ". So go to right subtree"
+        " is Greater than " +
+        node.data +
+        ". So go to right subtree"
       );
 
       if (node.right === null) {
@@ -119,9 +119,9 @@ class HBTree {
       if (a > critical.right.data) {
         node.stepStr.push(
           a +
-            " is inserted in " +
-            critical.data +
-            "'s right child's right subtree."
+          " is inserted in " +
+          critical.data +
+          "'s right child's right subtree."
         );
         node.stepStr.push(
           "So leftRotation of " + critical.data + " is performed."
@@ -131,14 +131,14 @@ class HBTree {
       } else {
         node.stepStr.push(
           a +
-            " is inserted in " +
-            critical.data +
-            "'s right child's left subtree."
+          " is inserted in " +
+          critical.data +
+          "'s right child's left subtree."
         );
         node.stepStr.push(
           "So rightRotation of " +
-            critical.data +
-            "'s right child is performed."
+          critical.data +
+          "'s right child is performed."
         );
         node.stepStr.push(
           "And leftRotation of " + critical.data + " is performed."
@@ -151,9 +151,9 @@ class HBTree {
       if (a < critical.left.data) {
         node.stepStr.push(
           a +
-            " is inserted in " +
-            critical.data +
-            "'s left child's left subtree."
+          " is inserted in " +
+          critical.data +
+          "'s left child's left subtree."
         );
         node.stepStr.push(
           "So righttRotation of " + critical.data + " is performed."
@@ -163,9 +163,9 @@ class HBTree {
       } else {
         node.stepStr.push(
           a +
-            " is inserted in " +
-            critical.data +
-            "'s left child's right subtree."
+          " is inserted in " +
+          critical.data +
+          "'s left child's right subtree."
         );
         node.stepStr.push(
           "So lefttRotation of " + critical.data + "'s left child is performed."
@@ -272,8 +272,8 @@ class HBTree {
       if (this.root === node) {
         strDel.push(
           "Delete Root Node and Making Node " +
-            node.left.data +
-            " as a Root Node"
+          node.left.data +
+          " as a Root Node"
         );
         this.root = node.left;
       } else if (pred.left === node) {
@@ -295,9 +295,9 @@ class HBTree {
         //node here is left most of right's node
         strDel.push(
           "Replace the Node " +
-            save.data +
-            " by its successor Node " +
-            node.data
+          save.data +
+          " by its successor Node " +
+          node.data
         );
 
         save.data = node.data;
@@ -601,6 +601,7 @@ function Make_HBTree(arr) {
 
     PrintHB(HB, arr[i], i);
   }
+
   fHB = HB;
 }
 function setLeftDistance(a) {
@@ -655,20 +656,20 @@ function setLeftDistance(a) {
 function printPre() {
   strArr = "";
   fHB.preOrder(fHB.root);
-  alert(strArr);
+  popup(true,strArr);
   strArr = "";
 }
 
 function printIn() {
   strArr = "";
   fHB.inOrder(fHB.root);
-  alert(strArr);
+  popup(true,strArr);
   strArr = "";
 }
 
 function printPost() {
   strArr = "";
   fHB.postOrder(fHB.root);
-  alert(strArr);
+  popup(true,strArr);
   strArr = "";
 }

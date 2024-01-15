@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="../titlebar.css" />
 	<link rel="stylesheet" href="../heading.css" />
 	<link rel="stylesheet" href="./stack.css" />
+	<link rel="stylesheet" href="../popup.css"/>
+	<link rel="stylesheet" href="../popup.css"/>
 </head>
 
 <body>
@@ -43,7 +45,33 @@
 			</div>
 		</div>
 	</div>
+	<div class="popup" id="popup">
+		<div class="box">
+			<div><img id="status" src="../IMAGES/rightPopUp.jpg"/></div>
+			<div><p id="msg">Stack created Successfully !</p></div>
+			<div><button id="popup">OK</button></div>
+		</div>
+	</div>
 </body>
 
 </html>
 <script src="./stack.js"></script>
+<script src="../popup.js"></script>
+<script>
+	function popup(status, msg) {
+			if (status === null) {
+				status = false;
+			}
+			if (msg === null) {
+				msg = "Error can't be detected!!";
+			}
+			document.getElementById('popup').style.display = "flex";
+			document.getElementById('msg').innerHTML = msg;
+			if (status == true) {
+				document.getElementById('status').src = "../IMAGES/rightPopUp.jpg";
+			}
+			else {
+				document.getElementById('status').src = "../IMAGES/wrongSymbol.jpg";
+			}
+		}
+</script>

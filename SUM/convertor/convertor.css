@@ -178,7 +178,10 @@ th {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
-
+th
+{
+	overflow: hidden;
+}
 td::-webkit-scrollbar {
 	display: none;
 }
@@ -215,6 +218,11 @@ td::-webkit-scrollbar {
 		height: 60%;
 		width: 15%;
 	}
+	#table2,.sumbox .table .table1
+	{
+		font-size: 13px;
+	}
+	
 
 }
 
@@ -248,6 +256,10 @@ td::-webkit-scrollbar {
 		height: 74%;
 		width: 10%;
 	}
+		#table2,
+		.sumbox .table .table1 {
+			font-size: 18px;
+		}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -280,6 +292,10 @@ td::-webkit-scrollbar {
 		height: 86%;
 		width: 8%;
 	}
+		#table2,
+		.sumbox .table .table1 {
+			font-size: 20px;
+		}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -303,6 +319,10 @@ td::-webkit-scrollbar {
 	.sumbox .inputBox>div>div:nth-child(3) {
 		width: 20%;
 	}
+		#table2,
+		.sumbox .table .table1 {
+			font-size: 21px;
+		}
 }
 
 /*Media query end*/

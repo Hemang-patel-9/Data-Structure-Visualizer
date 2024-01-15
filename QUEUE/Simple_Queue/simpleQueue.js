@@ -6,11 +6,11 @@ class Queue {
     this.size = s;
     this.frontIndex = Number.parseInt(0);
     this.rearIndex = Number.parseInt(0);
-    alert("created new queue");
+    popup(true,"created new queue");
   }
   enqueue(data) {
     if (this.size == this.rearIndex) {
-      alert("Queue Overflow");
+      popup(false,"Queue Overflow");
     } else {
       this.rearIndex++;
       if (this.frontIndex == 0) {
@@ -27,7 +27,7 @@ class Queue {
       this.frontIndex == this.rearIndex + 1 ||
       (this.frontIndex == this.rearIndex && this.frontIndex == 0))
     {
-      alert("Queue Underflow");
+      popup(false,"Queue Underflow");
       return;
     }
     if (this.frontIndex == this.rearIndex) {

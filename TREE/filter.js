@@ -19,7 +19,7 @@ function validNumber() {
 //filtering the data;
 function filterdata(str) {
   if (str == "") {
-    alert("The Box is Empty!");
+    popup(false,"The Box is Empty!");
   }
   str = str.trim();
   let narr = str.split(" ");
@@ -42,7 +42,7 @@ function filterdata(str) {
     for (b = a - 1; b >= 0; b--) {
       if (arr[a] == arr[b]) {
         flag = 1;
-        alert("duplicate can't allow.All duplicate number will be removed automattically.");
+        popup(false,"duplicate isn't allow. All duplicate number will be removed automattically.");
       }
     }
     if (flag == 0) {

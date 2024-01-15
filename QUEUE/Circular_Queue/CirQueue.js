@@ -6,11 +6,11 @@ class Queue {
     this.size = s;
     this.frontIndex = Number.parseInt(-1);
     this.rearIndex = Number.parseInt(-1);
-    alert("created new queue");
+    popup(true,"created new queue");
   }
   enqueue(data) {
     if (this.rearIndex + 1 == this.frontIndex) {
-      alert("Queue Overflow");
+      popup(false,"Queue Overflow");
       return;
     }
     if (this.rearIndex == this.size - 1) {
@@ -19,7 +19,7 @@ class Queue {
         this.queue.push(data);
         setRear(this.rearIndex + 1, data);
       } else {
-        alert("Queue Overflow");
+        popup(false,"Queue Overflow");
       }
       return;
     }
@@ -35,7 +35,7 @@ class Queue {
   }
   dequeue() {
     if (this.frontIndex == this.rearIndex && this.frontIndex == -1) {
-      alert("Queue Underflow");
+      popup(false,"Queue Underflow");
       return;
     }
     if (this.frontIndex == this.rearIndex) {
@@ -150,7 +150,6 @@ function setRear(id, val) {
   }
   let parent = document.getElementById(`item${id}`);
   if (q1.frontIndex === q1.rearIndex) {
-    alert('reached in equal cond.');
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
     isEqual = true;
   } else {

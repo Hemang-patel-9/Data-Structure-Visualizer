@@ -22,7 +22,7 @@
 
 .inputs {
 	width: 100%;
-	height: 20%;
+	height: 10%;
 	display: flex;
 	flex-direction: row;
 	border: 1px solid black;
@@ -32,7 +32,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	flex-direction: column;
+	flex-direction: row;
 	height: 100%;
 	margin-left: 2px;
 }
@@ -42,14 +42,14 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
-	width: 90%;
-	height: 40%;
+	width: 50%;
+	height: 80%;
 	overflow: hidden;
 }
 
 .inputs .order span,
 .inputs .order input {
-	font-size: 20px;
+	font-size: 18px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -68,7 +68,7 @@
 	font-size: 20px;
 	border: none;
 	outline: none;
-	background-color: rgb(147,139,162);
+	background-color: rgb(147, 139, 162);
 	color: white;
 }
 
@@ -89,12 +89,11 @@
 }
 
 .inputs>div:nth-child(1) {
-	width: 65%;
-	border-right: 3px solid black;
+	width: 85%;
 }
 
 .inputs>div:nth-child(2) {
-	width: 35%;
+	width: 15%;
 }
 
 .right .toggle {
@@ -107,6 +106,7 @@
 	overflow: hidden;
 	cursor: pointer;
 	border: 2px solid rgb(0, 218, 150);
+	font-size: 19px;
 }
 
 .right .toggle>div {
@@ -114,8 +114,7 @@
 	justify-content: center;
 	align-items: center;
 	height: 100%;
-	width: 50%;
-	font-size: 20px;
+	width: 100%;
 	font-weight: 400;
 	background-color: rgb(20, 27, 53);
 	color: rgb(0, 218, 150);
@@ -123,9 +122,9 @@
 
 .canvasDiv {
 	width: 100%;
-	height: 80%;
+	height: 90%;
 	border: 1px solid black;
-	background-color: white;
+	background-color: rgb(80, 106, 145);
 	overflow: scroll;
 }
 
@@ -136,15 +135,19 @@
 		width: 70%;
 	}
 
-	.right .toggle>div,
 	.inputs .order span,
 	.inputs .order input,
 	.inputs .order select {
 		font-size: 11px;
 	}
-		.inputs .order {
-			height: 30%;
-		}
+
+	.inputs .order {
+		height: 50%;
+	}
+
+	.btnbtn {
+		font-size: 11px;
+	}
 }
 
 @media only screen and (min-width: 600px) {
@@ -153,37 +156,43 @@
 		width: 56%;
 	}
 
-	.right .toggle>div,
 	.inputs .order span,
 	.inputs .order input,
 	.inputs .order select {
 		font-size: 16px;
 	}
-	.inputs .order
-	{
-		height: 40%;
+
+	.inputs .order {
+		height: 65%;
+	}
+
+	.btnbtn {
+		font-size: 14px;
 	}
 }
 
 @media only screen and (min-width: 768px) {
 
-	.right .toggle>div,
 	.inputs .order span,
 	.inputs .order input,
 	.inputs .order select {
 		font-size: 17px;
 	}
-		.inputs .order {
-			height: 40%;
-		}
+
+	.inputs .order {
+		height: 70%;
+	}
 }
 
 @media only screen and (min-width: 992px) {
 
-	.right .toggle>div,
 	.inputs .order span,
 	.inputs .order input,
 	.inputs .order select {
-		font-size: 20px;
+		font-size: 18px;
+	}
+
+	.btnbtn {
+		font-size: 17px;
 	}
 }

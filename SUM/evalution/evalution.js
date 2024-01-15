@@ -12,12 +12,12 @@ function Convert() {
 	val = val.trim();
 	if(choice=="Prefix" && (val[0]>=0 && val[0]<=9))
 	{
-		alert("Looking like a Postfix Expression!");
+		popup(false,"Looking like a Postfix Expression!");
 		return;
 	}
 	else if (choice == "Postfix" && (val[0] == '+' || val[0] == '-' || val[0] == '*' || val[0] == '/' || val[0] == '$' || val[0] == '^'))
 	{
-		alert("Looking like a Prefix Expression");
+		popup(false,"Looking like a Prefix Expression");
 		return;
 	}
 	let arr = val.split(" ");
@@ -74,7 +74,7 @@ function prefixToInfix(arr, type) {
 		console.log("stack => " + stack);
 	}
 
-	console.log(stack.pop());
 	document.getElementById("tableDiv").style.display = "block";
+	tableString+=`<tr><td colspan="3">Answer is ${stack.pop()}</td></tr>`
 	document.getElementById("table").innerHTML = "<tr><th>Sr. No.</th><th>Input Symbol</th><th>Stack</th></tr>" + tableString;
 }

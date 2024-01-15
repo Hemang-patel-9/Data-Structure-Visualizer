@@ -51,6 +51,7 @@
 
 /*Inputs css*/
 input {
+	background-color: rgb(221, 230, 240);
 	font-size: 30px;
 }
 
@@ -90,7 +91,7 @@ input {
 	width: 99%;
 	height: 85%;
 	border: 2px solid black;
-	background-color: white;
+	background-color: rgb(175, 202, 227);
 	overflow: scroll;
 }
 

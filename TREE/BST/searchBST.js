@@ -1,7 +1,15 @@
 function searchBST() {
   let flag = 0;
   document.getElementById("myBstCanvas").scrollIntoView();
+  let str = document.getElementById("inputBox").value;
   let n = document.getElementById("search").value;
+
+  if (str == "") {
+    popup(false,"Can't search Node Before insertion");
+    document.getElementById("search").value = "";
+    return;
+  }
+
   n = Number.parseInt(n);
 
   const draw = document.getElementById("myBstCanvas");
@@ -67,6 +75,6 @@ function searchBST() {
   }
 
   if (flag == 0) {
-    alert("Node not found in the tree");
+    popup(false,"Node not found in the tree");
   }
 }

@@ -7,7 +7,8 @@ function del() {
   delval = Number.parseInt(delval);
 
   if (str == "") {
-    alert("Can't Delete Node Before insertion");
+    popup(false,"Can't Delete Node Before insertion");
+    document.getElementById("delval").value = "";
   } else {
     for (let i = 0; i < BST.length; i++) {
       if (BST[i] == delval) {
@@ -17,7 +18,7 @@ function del() {
       }
     }
     if (flag == 0) {
-      alert("Node Not Found In Tree!");
+      popup(false,"Node Not Found In Tree!");
       document.getElementById("delval").value = "";
       return;
     }

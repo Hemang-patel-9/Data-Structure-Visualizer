@@ -44,7 +44,7 @@ class DoublyLL {
 
     async delete(val) {
         if (this.head === null) {
-            alert("can't delete from empty linkedlist");
+            popup(false,"can't delete from empty linkedlist");
             return;
         }
 
@@ -74,7 +74,7 @@ class DoublyLL {
         }
 
         displayDLL();
-        alert("Node not found");
+        popup(false,"Node not found");
     }
 
     async search(n) {
@@ -85,7 +85,6 @@ class DoublyLL {
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] === Number.parseInt(n)) {
                 await setColor(item);
-                alert("found in list");
                 flag = true;
                 displayDLL();
                 break;
@@ -96,7 +95,7 @@ class DoublyLL {
 
         if (flag == false) {
             displayDLL();
-            alert("Node not found in list!");
+            popup(false,"Node not found in list!");
         }
     }
 }
@@ -111,10 +110,10 @@ document.getElementById('btnInsert').addEventListener("click", () => {
         arr.push(Number.parseInt(val.value));
         arr.sort((a, b) => { return a - b });
         displayDLL();
-        // val.value = "";
+        val.value = "";
     }
     else {
-        alert("Only Number can be inserted in list")
+        popup(false,"Only Number can be inserted in list")
     }
 })
 
@@ -126,6 +125,10 @@ document.getElementById("btnDelete").addEventListener("click", () => {
 });
 
 document.getElementById("btnSearch").addEventListener("click", () => {
+    if (dl.head === null) {
+        popup(false, "Can't search before insertion");
+        return;
+    }
     let val = document.getElementById("searchInput");
     dl.search(Number.parseInt(val.value));
     val.value = "";

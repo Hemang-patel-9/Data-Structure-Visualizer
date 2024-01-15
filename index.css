@@ -19,9 +19,9 @@ html {
 	width: 100%;
 	background-image: url('./IMAGES/backGroundImage.jpg');
 	background-size: cover;
-	-webkit-mask-image: linear-gradient(black, black, black, black, black, transparent);
-	-moz-mask-image: linear-gradient(black, black, black, black, black, transparent);
-	mask-image: linear-gradient(black, black, black, black, black, transparent);
+	-webkit-mask-image: linear-gradient(black, black,black,black, black, black, black, black, transparent);
+	-moz-mask-image: linear-gradient(black, black,black,black, black, black, black, black, transparent);
+	mask-image: linear-gradient(black, black,black,black, black, black, black, black, transparent);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
@@ -318,9 +318,9 @@ html {
 	}
 
 	.container .content .allStructure {
-		padding-top: 100px;
-		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-		grid-row-gap: 140px;
+		padding-top: 10px;
+		grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+		grid-row-gap: 40px;
 	}
 
 	.container .bg-image .titleBar nav {

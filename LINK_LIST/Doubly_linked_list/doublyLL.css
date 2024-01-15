@@ -205,12 +205,28 @@ input::placeholder {
 		height: 36%;
 		width: 22%;
 	}
+	.sllbox .linked-list-container>.row>.item>div
+	{
+		font-size: 15px;
+	}
+	.sllbox .linked-list-container>.row
+	{
+		height: 7%;
+	}
 }
 
 @media only screen and (min-width: 600px) {
 	.sllbox .inputBoxes>div {
 		height: 45%;
 		width: 20%;
+	}
+	.sllbox .linked-list-container>.row>.item>div
+	{
+		font-size: 20px;
+	}
+	.sllbox .linked-list-container>.row
+	{
+		height: 8%;
 	}
 }
 
@@ -220,6 +236,14 @@ input::placeholder {
 		height: 55%;
 		width: 19%;
 	}
+	.sllbox .linked-list-container>.row>.item>div
+	{
+		font-size: 27px;
+	}
+	.sllbox .linked-list-container>.row
+	{
+		height: 9%;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -228,6 +252,14 @@ input::placeholder {
 		height: 60%;
 		width: 18%;
 	}
+	.sllbox .linked-list-container>.row>.item>div
+	{
+		font-size: 30px;
+	}
+	.sllbox .linked-list-container>.row
+	{
+		height: 10%;
+	}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -235,5 +267,13 @@ input::placeholder {
 	.sllbox .inputBoxes>div {
 		height: 70%;
 		width: 18%;
+	}
+	.sllbox .linked-list-container>.row>.item>div
+	{
+		font-size: 30px;
+	}
+	.sllbox .linked-list-container>.row
+	{
+		height: 12.7%;
 	}
 }

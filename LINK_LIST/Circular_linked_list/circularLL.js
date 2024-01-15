@@ -47,7 +47,7 @@ class CircularLL {
     async delete(val) {
 
         if (this.first === null) {
-            alert("can't delete from empty linkedlist");
+            popup(false,"can't delete from empty linkedlist");
             displayCLL();
             return;
         }
@@ -78,7 +78,7 @@ class CircularLL {
         }
 
         await (this.search(val));
-        alert("Node not found");
+        popup(false,"Node not found");
     }
 
     async search(n) {
@@ -100,7 +100,6 @@ class CircularLL {
             }
             if (arr[i] === Number.parseInt(n)) {
                 await setColor(item, oddrow, last);
-                alert("found in list");
                 flag = true;
                 displayCLL();
                 break;
@@ -111,7 +110,7 @@ class CircularLL {
 
         if (flag == false) {
             displayCLL();
-            alert("Node not found in list!");
+            popup(false,"Node not found in list!");
         }
     }
 }
@@ -126,6 +125,7 @@ document.getElementById("btnInsert").addEventListener("click", () => {
         cl.insert(Number.parseInt(val.value));
     }
     displayCLL();
+    val.value="";
 });
 
 document.getElementById("btnDelete").addEventListener("click", () => {
@@ -133,9 +133,14 @@ document.getElementById("btnDelete").addEventListener("click", () => {
     if (val.value != "" && val.value != NaN) {
         cl.delete(Number.parseInt(val.value));
     }
+    val.value="";
 });
 
 document.getElementById("btnSearch").addEventListener("click", () => {
+    if (cl.head === null) {
+        popup(false, "Can't search before insertion");
+        return;
+    }
     let val = document.getElementById("searchInput");
     cl.search(Number.parseInt(val.value));
     val.value = "";

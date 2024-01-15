@@ -29,23 +29,28 @@
 		<div class="contentDiv">
 			<div class="inputs">
 				<div class="left">
-					<div class="order"><span>Inorder</span><input type="text" placeholder="Enter Array"/></div>
-					<div class="order"><span><select name="" id="">
-						<option value="Preorder">Preorder</option>
-						<option value="Postorder">Postorder</option>
-					</select></span><input type="text" placeholder="Enter Array"/></div>
+					<div class="order"><span>Inorder</span><input type="text" placeholder="Enter Array"
+							id="inOrderInput" /></div>
+					<div class="order"><span><select name="selectOrder" id="selectOrder">
+								<option value="Preorder">Preorder</option>
+								<option value="Postorder">Postorder</option>
+							</select></span><input type="text" placeholder="Enter Array" id="otherInput" /></div>
 				</div>
 				<div class="right">
 					<div class="toggle">
-						<div class="toggBST" id="toggBST">BST</div>
-						<div class="toggAVL" id="toggAVL">AVL</div>
+						<div class="btnbtn" id="toggBST">BST</div>
 					</div>
 				</div>
 			</div>
-			<div class="canvasDiv"></div>
+			<div class="canvasDiv">
+				<canvas id="myBstCanvas" height="20000" width="6000"></canvas>
+			</div>
 		</div>
 	</div>
 </body>
 
 </html>
-<script src="./toggle.js"></script>
+<!-- <script src="./toggle.js"></script> -->
+<script src="./treefromtraversal.js"></script>
+<script src="../printTree.js"></script>
+<script src="../filter.js"></script>

@@ -8,16 +8,16 @@ class DEQueue {
     this.size = s;
     this.frontIndex = Number.parseInt(-1);
     this.rearIndex = Number.parseInt(-1);
-    alert("created new queue");
+    popup(true,"created new queue");
   }
 
   insertFront(data) {
     if (this.frontIndex == 0) {
-      alert("Queue overflow");
+      popup(false,"Queue overflow");
       return;
     }
     if (this.frontIndex == -1) {
-      alert("Empty Queue");
+      popup(false,"Empty Queue");
       return;
     }
     this.dequeue.unshift(data);
@@ -27,7 +27,7 @@ class DEQueue {
 
   insertLast(data) {
     if (this.rearIndex == this.size - 1) {
-      alert("Queue Overflow");
+      popup(false,"Queue Overflow");
       return;
     }
 
@@ -41,7 +41,7 @@ class DEQueue {
 
   deleteFront() {
     if (this.frontIndex == this.rearIndex + 1 || this.frontIndex == -1) {
-      alert("Queue Underflow");
+      popup(false,"Queue Underflow");
       return;
     }
     if (this.frontIndex == this.rearIndex) {
@@ -59,7 +59,7 @@ class DEQueue {
 
   deleteLast() {
     if (this.rearIndex == -1) {
-      alert("can't delete from empty queue");
+      popup(false,"can't delete from empty queue");
       return;
     }
     if (this.rearIndex == this.frontIndex) {
