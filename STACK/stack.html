@@ -3,13 +3,18 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Hemang Baldha , Hetvi Deshani" />
+	<meta name="description"
+		content="The best platform to visualise various DATA STRUCTURES like · stack · Queue · Tree · Linked List. It also provides convertion and evaluation of infix to prefix, postfix and many more." />
+	<meta name="keywords"
+		content="dsa,DSA,data structure,dsvisualizer, data structure Visualization, visualize,dsavisual,visualizee of data structure,DSA visualizer,stack,queue,linked list,graph,infix,prefix,postfix,dsa convertor,dsa evalutor,evalution dsa,stack visualizer,stack dsa,DSA STACK" />
 	<title>Stack Data Structure</title>
 	<link rel="stylesheet" href="../titlebar.css" />
 	<link rel="stylesheet" href="../heading.css" />
 	<link rel="stylesheet" href="./stack.css" />
-	<link rel="stylesheet" href="../popup.css"/>
-	<link rel="stylesheet" href="../popup.css"/>
+	<link rel="stylesheet" href="../popup.css" />
+	<link rel="stylesheet" href="../popup.css" />
 </head>
 
 <body>
@@ -18,19 +23,24 @@
 			<img src="../IMAGES/DU_Logo.png" alt="logo not found">
 			<nav>
 				<ul>
-					<a href="../index.html"><li>Home</li></a>
-					<a href="../about.html"><li>About Us</li></a>
+					<a href="../index.html">
+						<li>Home</li>
+					</a>
+					<a href="../about.html">
+						<li>About Us</li>
+					</a>
 				</ul>
 			</nav>
 		</div>
 		<div class="heading">Stack Data Structure</div>
 		<div class="contentBox">
 			<div class="inputs">
-				<div><input type="number" placeholder="size" id="size"/><button id="btnSize">&#9654;</button></div>
-				<div><input type="number" placeholder="eg.15" id="push"/><button id="btnPush">Push</button></div>
+				<div><input type="number" placeholder="size" id="size" /><button id="btnSize">&#9654;</button></div>
+				<div><input type="number" placeholder="eg.15" id="push" /><button id="btnPush">Push</button></div>
 				<div><button id="btnPop">Pop</button></div>
-				<div><input type="number" placeholder="eg.2" id="peep"/><button id="btnPeep">Peep</button></div>
-				<div><input type="number" placeholder="position" id="position"/><button id="btnChange">Change</button><input type="number" placeholder="value" id="newvalue"/></div>
+				<div><input type="number" placeholder="eg.2" id="peep" /><button id="btnPeep">Peep</button></div>
+				<div><input type="number" placeholder="position" id="position" /><button
+						id="btnChange">Change</button><input type="number" placeholder="value" id="newvalue" /></div>
 			</div>
 			<div class="stackBox">
 				<div class="outer" id="outer">
@@ -47,8 +57,10 @@
 	</div>
 	<div class="popup" id="popup">
 		<div class="box">
-			<div><img id="status" src="../IMAGES/rightPopUp.jpg"/></div>
-			<div><p id="msg">Stack created Successfully !</p></div>
+			<div><img id="status" src="../IMAGES/rightPopUp.jpg" /></div>
+			<div>
+				<p id="msg">Stack created Successfully !</p>
+			</div>
 			<div><button id="popup">OK</button></div>
 		</div>
 	</div>
@@ -59,19 +71,19 @@
 <script src="../popup.js"></script>
 <script>
 	function popup(status, msg) {
-			if (status === null) {
-				status = false;
-			}
-			if (msg === null) {
-				msg = "Error can't be detected!!";
-			}
-			document.getElementById('popup').style.display = "flex";
-			document.getElementById('msg').innerHTML = msg;
-			if (status == true) {
-				document.getElementById('status').src = "../IMAGES/rightPopUp.jpg";
-			}
-			else {
-				document.getElementById('status').src = "../IMAGES/wrongSymbol.jpg";
-			}
+		if (status === null) {
+			status = false;
 		}
+		if (msg === null) {
+			msg = "Error can't be detected!!";
+		}
+		document.getElementById('popup').style.display = "flex";
+		document.getElementById('msg').innerHTML = msg;
+		if (status == true) {
+			document.getElementById('status').src = "../IMAGES/rightPopUp.jpg";
+		}
+		else {
+			document.getElementById('status').src = "../IMAGES/wrongSymbol.jpg";
+		}
+	}
 </script>

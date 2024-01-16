@@ -70,4 +70,29 @@ button
 	padding: 5px;
 	height: 85%;
 	width: 100%;
+}.box .box2 .items
+{
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: pink;
+	width: 95%;
+	height: 40%;
+	display: block;
+	padding-left: 20px;
+}
+.box .box2 .items > div
+{
+	position: relative;
+	top: 25%;
+	float: left;
+	border: 1px solid black;
+	padding: 3px;
+	margin: 5px;
+	height: 40px;
+	width: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
