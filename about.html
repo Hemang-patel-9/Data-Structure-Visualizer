@@ -25,10 +25,78 @@
 		<div class="img-content"><p>Data Structure Visualizer</p></div>
 	</div>
 	<div class="container motto">
-		<div class="motto-desc"></div>
+		<div class="motto-desc">
+			<div class="motto-heading"><p>Our <u style="color: maroon;">Motto</u></p></div>
+			<div class="motto-paragraph"><p>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore temporibus culpa quos esse officiis id, nemo ea repellendus non ut obcaecati maxime vitae pariatur reiciendis eius unde. Accusamus, non ducimus! Possimus nulla alias assumenda quibusdam laudantium eius, sapiente totam iusto perspiciatis, consectetur pariatur, quas quasi!
+			</p></div>
+		</div>
 		<div class="video">
-			<video src=""></video>
+			<video src="D:\Pokemon\S18\S18 E01.mkv" controls muted autoplay></video>
 		</div>
 	</div>
+	<div class="container team">
+		<div><p>Team <u style="color: maroon;">Member</u></p></div>
+		<div class="card-view">
+			<div class="card-image">
+				<img src="./IMAGES/DU_Logo.png"/>
+			</div>
+			<div class="card-info">
+				<p>Name : Hemang M. Baldha</p>
+				<p>Proffesion : BackEnd & Frontend Developer</p>
+				<p>Instagram URL : <a href="https://www.instagram.com/hemang_patel__/">https://www.instagram.com/hemang_patel__/</a></p>
+				<p>Linkedin URL : <a href="https://www.linkedin.com/in/hemang-baldha-b75a0b257/">www.linkedin.com/in/hemang-baldha-b75a0b257</a></p>
+				<p>GitHub URL : <a href="https://github.com/hemang-patel-9">https://github.com/hemang-patel-9</a></p>
+			</div>
+		</div>
+		<div class="card-view">
+			<div class="card-image">
+				<img src="./IMAGES/Hetvi.png"/>
+			</div>
+			<div class="card-info">
+				<p>Name : Hetvi C. Deshani</p>
+				<p>Proffesion : BackEnd & Frontend Developer</p>
+				<p>Instagram URL : <a href="https://www.instagram.com/hetu_deshani/">https://www.instagram.com/hetu_deshani/</a></p>
+				<p>Linkedin URL : <a href="https://www.linkedin.com/in/hetvi-deshani-26bb812a7/ ">https://www.linkedin.com/in/hetvi-deshani-26bb812a7/</a></p>
+				<p>GitHub URL : <a href="https://github.com/hetvideshani">https://github.com/hetvideshani</a></p>
+			</div>
+		</div>
+		<div class="card-view">
+			<div class="card-image">
+				<img src="./IMAGES/DU_Logo.png"/>
+			</div>
+			<div class="card-info">
+				<p>Name : Shruti X. Vadagama</p>
+				<p>Proffesion : UI/UX Designer & Frontend Developer</p>
+				<p>Instagram URL : <a href="/home">home</a></p>
+				<p>Linkedin URL : <a href="/home">home</a></p>
+				<p>GitHub URL : <a href="/home">home</a></p>
+			</div>
+		</div>
+	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top"> &uarr; </button>
 </body>
 </html>
+<script>
+	let mybutton = document.getElementById("myBtn");
+
+	window.onscroll = function () { scrollFunction() };
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+			mybutton.style.display = "block";
+		} else {
+			mybutton.style.display = "none";
+		}
+	}
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+	document.getElementById('aboutus').addEventListener('click', () => {
+		location.href = "about.html";
+	});
+	document.getElementById('home').addEventListener('click', () => {
+		location.href = "index.html";
+	});
+</script>

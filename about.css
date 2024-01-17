@@ -1,59 +1,291 @@
-*{
+* {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	font-family: 'Times New Roman', Times, serif;
 }
-.container
-{
+
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+.container {
 	margin: 0;
 	padding: 0;
 	height: 100vh;
 	width: 100%;
 }
-.img-content
-{
+
+.img-content {
 	width: 100%;
-	height: 90%;
+	height: 100%;
 	background-image: url(./IMAGES/backGroundImage.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
-.img-content p
-{
+
+.img-content p {
 	position: relative;
 	top: 55%;
 	left: 2.7%;
 	color: white;
 	font-size: 50px;
 }
-.motto
-{
+
+.motto {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
-.motto > div
-{
+
+.motto>div {
 	height: 100%;
 	width: 50%;
-	background-color: black;
+	background-color: rgb(17, 22, 41);
 }
-.motto .motto-desc
-{
+
+.motto .motto-desc {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	color: white;
+	padding: 6px;
+	padding-top: 30px;
+}
+
+.motto .motto-desc .motto-heading {
+	font-size: 50px;
+}
+
+.motto .motto-desc .motto-paragraph {
+	font-size: 40px;
+	color: white;
+	margin: 25px 30px 5px;
+}
+
+.motto .video {
 	height: 100%;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
-	background-color: blue;
 }
-.motto .video
-{
-	height: 100%;
+
+.motto .video>video {
+	height: 90%;
+	width: 80%;
+	border: 2px solid red;
+}
+
+.team {
+	background-color: rgb(17, 22, 41);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	padding: 30px 10px 20px 14px;
+	color: white;
+	height: 130vh;
+}
+
+.team>div:first-child p {
+	font-size: 50px;
+}
+
+.team>.card-view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	margin-top: 20px;
 	width: 100%;
-	background-color: red;
+	height: 50%;
+}
+
+.team>.card-view>.card-image {
+	height: 100%;
+	width: 25%;
+	display: grid;
+	place-items: center;
+	padding: 5px;
+}
+
+.team>.card-view>.card-image img {
+	border: 2px solid rgb(255, 255, 255);
+	object-fit: cover;
+	height: 100%;
+	width: 64%;
+	margin: 2px;
+	border-radius: 2px;
+}
+
+.team>.card-view>.card-info {
+	overflow-y: hidden;
+	overflow-x: auto;
+	height: 100%;
+	width: 75%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 20px;
+	border: 1px solid rgb(255, 255, 255);
+	box-shadow: 4px 4px 3px rgb(255, 255, 255);
+	overflow: hidden;
+	font-weight: 800;
+	font-size: 18px;
+}
+
+.team>.card-view>.card-info>p {
+	padding: 10px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	height: calc(100%/5);
+}
+
+.team>.card-view>.card-info>p>a {
+	text-decoration: underline;
+	color: white;
+	margin-left: 10px;
+}
+
+/*go to top css*/
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: rgb(231, 231, 244);
+	color: black;
+	font-weight: 900;
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+#myBtn:hover {
+	background-color: rgb(231, 231, 244);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+	.img-content p,
+	.motto .motto-desc .motto-heading,
+	.team>div:first-child p {
+		font-size: 32px;
+	}
+
+	.img-content p {
+		top: 57%;
+	}
+
+	.motto .motto-desc .motto-paragraph {
+		font-size: 21.8px;
+	}
+
+	.motto {
+		flex-direction: column;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+	.img-content p,
+	.motto .motto-desc .motto-heading,
+	.team>div:first-child p {
+		font-size: 35px;
+	}
+
+	.img-content p {
+		top: 66%;
+	}
+
+	.motto .motto-desc .motto-paragraph {
+		font-size: 26px;
+	}
+
+	.motto {
+		flex-direction: column;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+	.img-content p,
+	.motto .motto-desc .motto-heading,
+	.team>div:first-child p {
+		font-size: 42px;
+	}
+
+	.img-content p {
+		top: 60%;
+	}
+
+	.motto .motto-desc .motto-paragraph {
+		font-size: 32px;
+	}
+
+	.motto {
+		flex-direction: row;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+	.img-content p,
+	.motto .motto-desc .motto-heading,
+	.team>div:first-child p {
+		font-size: 48px;
+	}
+
+	.img-content p {
+		top: 53%;
+	}
+
+	.motto .motto-desc .motto-paragraph {
+		font-size: 35px;
+	}
+
+	.motto {
+		flex-direction: row;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+	.img-content p,
+	.motto .motto-desc .motto-heading,
+	.team>div:first-child p {
+		font-size: 50px;
+	}
+
+	.img-content p {
+		top: 55%;
+	}
+
+	.motto .motto-desc .motto-paragraph {
+		font-size: 40px;
+	}
+
+	.motto {
+		flex-direction: row;
+	}
 }
