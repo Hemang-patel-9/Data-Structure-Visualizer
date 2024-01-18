@@ -86,6 +86,7 @@
 	background-color: rgb(20, 27, 53);
 	color: white;
 	overflow: scroll;
+	height: 100%;
 }
 
 .inputs>div:nth-child(1) {
@@ -94,18 +95,18 @@
 
 .inputs>div:nth-child(2) {
 	width: 15%;
+	height: 100%;
 }
 
 .right .toggle {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	height: 43%;
 	width: 48%;
 	border-radius: 30px;
 	overflow: hidden;
 	cursor: pointer;
-	border: 2px solid rgb(0, 218, 150);
+	border: 2px solid rgb(147, 139, 162);
 	font-size: 19px;
 }
 
@@ -117,7 +118,7 @@
 	width: 100%;
 	font-weight: 400;
 	background-color: rgb(20, 27, 53);
-	color: rgb(0, 218, 150);
+	color: white;
 }
 
 .canvasDiv {
@@ -182,6 +183,11 @@
 	.inputs .order {
 		height: 70%;
 	}
+
+	.right .toggle {
+		height: 50%;
+		width: 56%;
+	}
 }
 
 @media only screen and (min-width: 992px) {
@@ -194,5 +200,10 @@
 
 	.btnbtn {
 		font-size: 17px;
+	}
+
+	.right .toggle {
+		height: 50%;
+		width: 56%;
 	}
 }

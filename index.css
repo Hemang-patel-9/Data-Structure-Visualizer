@@ -19,9 +19,6 @@ html {
 	width: 100%;
 	background-image: url('./IMAGES/backGroundImage.jpg');
 	background-size: cover;
-	-webkit-mask-image: linear-gradient(black, black,black,black, black, black, black, black, transparent);
-	-moz-mask-image: linear-gradient(black, black,black,black, black, black, black, black, transparent);
-	mask-image: linear-gradient(black, black,black,black, black, black, black, black, transparent);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
@@ -118,7 +115,6 @@ html {
 	margin-top: 0;
 	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 	grid-template-rows: 1fr;
-	margin-top: 20px;
 }
 
 .container .content img {

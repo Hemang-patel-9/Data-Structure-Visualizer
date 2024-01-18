@@ -20,7 +20,7 @@ html {
 .img-content {
 	width: 100%;
 	height: 100%;
-	background-image: url(./IMAGES/backGroundImage.jpg);
+	background-image: url(./IMAGES/aboutus-image.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -124,6 +124,7 @@ html {
 	width: 64%;
 	margin: 2px;
 	border-radius: 2px;
+	aspect-ratio: 4/5;
 }
 
 .team>.card-view>.card-info {
@@ -200,6 +201,10 @@ html {
 	.motto {
 		flex-direction: column;
 	}
+
+	.team>.card-view {
+		flex-direction: column;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -222,6 +227,10 @@ html {
 	.motto {
 		flex-direction: column;
 	}
+
+	.team>.card-view {
+		flex-direction: row;
+	}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -238,10 +247,14 @@ html {
 	}
 
 	.motto .motto-desc .motto-paragraph {
-		font-size: 32px;
+		font-size: 29px;
 	}
 
 	.motto {
+		flex-direction: row;
+	}
+
+	.team>.card-view {
 		flex-direction: row;
 	}
 }
@@ -266,6 +279,10 @@ html {
 	.motto {
 		flex-direction: row;
 	}
+
+	.team>.card-view {
+		flex-direction: row;
+	}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -286,6 +303,10 @@ html {
 	}
 
 	.motto {
+		flex-direction: row;
+	}
+
+	.team>.card-view {
 		flex-direction: row;
 	}
 }
