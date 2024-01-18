@@ -65,9 +65,9 @@ class Conversion {
       i++;
       console.log("called " + this.stack);
     }
-    // if (this.rank != 1) {
-    //   popup(false,"Invalid Expression !");
-    // }
+    if (this.rank != 1) {
+      popup(false,"Invalid Expression !");
+    }
     while (this.stack.length != 0) {
       if (this.stack[this.stack.length - 1] != '(' || this.stack[this.stack.length - 1] != ')') {
         this.polish += this.stack[this.stack.length - 1];
@@ -114,14 +114,17 @@ class Conversion {
   }
 
   updateRank(s) {
-    switch (s) {
-      case "+": this.rank--;
+    if(s!=" ")
+    {
+      console.log("s is --------- "+s);
+      switch (s) {
+        case "+": this.rank--;
         console.log("rank decreased.");
         break;
-      case "-": this.rank--;
+        case "-": this.rank--;
         console.log("rank decreased.");
         break;
-      case "*": this.rank--;
+        case "*": this.rank--;
         console.log("rank decreased.");
         break;
       case "/": this.rank--;
@@ -139,6 +142,7 @@ class Conversion {
       default:
         this.rank++;
         console.log("rank ++");
+      }
     }
   }
 
