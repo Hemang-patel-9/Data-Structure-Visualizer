@@ -47,7 +47,7 @@ class CircularLL {
     async delete(val) {
 
         if (this.first === null) {
-            popup(false,"can't delete from empty linkedlist");
+            popup(false, "can't delete from empty linkedlist");
             displayCLL();
             return;
         }
@@ -78,7 +78,7 @@ class CircularLL {
         }
 
         await (this.search(val));
-        popup(false,"Node not found");
+        popup(false, "Node not found");
     }
 
     async search(n) {
@@ -110,7 +110,7 @@ class CircularLL {
 
         if (flag == false) {
             displayCLL();
-            popup(false,"Node not found in list!");
+            popup(false, "Node not found in list!");
         }
     }
 }
@@ -123,17 +123,28 @@ document.getElementById("btnInsert").addEventListener("click", () => {
         arr.push(Number.parseInt(val.value));
         arr.sort((a, b) => { return a - b });
         cl.insert(Number.parseInt(val.value));
+        displayCLL();
+        val.value = "";
     }
-    displayCLL();
-    val.value="";
+    else {
+        popup(false, "Please enter some value.")
+    }
+    val = document.getElementById("insertInput").focus();
 });
 
 document.getElementById("btnDelete").addEventListener("click", () => {
+    if (cl.head === null) {
+        popup(false, "Can't delete before insertion");
+        val.value = "";
+        return;
+    }
     let val = document.getElementById("deleteInput");
     if (val.value != "" && val.value != NaN) {
         cl.delete(Number.parseInt(val.value));
+    } else {
+        popup(false, "Please enter some value to delete");
     }
-    val.value="";
+    val.value = "";
 });
 
 document.getElementById("btnSearch").addEventListener("click", () => {
@@ -142,7 +153,12 @@ document.getElementById("btnSearch").addEventListener("click", () => {
         return;
     }
     let val = document.getElementById("searchInput");
-    cl.search(Number.parseInt(val.value));
+    if (val.value != "" && val.value != NaN) {
+        cl.search(Number.parseInt(val.value));
+    }
+    else {
+        popup("Please enter some value to search.");
+    }
     val.value = "";
 });
 

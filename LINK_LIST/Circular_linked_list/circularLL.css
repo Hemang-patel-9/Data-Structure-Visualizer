@@ -30,7 +30,7 @@ input::-webkit-outer-spin-button {
 }
 
 input::placeholder {
-    color: black;
+    color: rgb(0, 0, 0, 0.6);
 }
 
 .sllbox {
@@ -345,20 +345,20 @@ input::placeholder {
         height: 36%;
         width: 22%;
     }
-    .sllbox .linked-list-container .row .item
-    {
+
+    .sllbox .linked-list-container .row .item {
         height: 22px;
     }
-    .sllbox .linked-list-container .row .item .link-horizontal
-    {
+
+    .sllbox .linked-list-container .row .item .link-horizontal {
         background-size: 41% 71%;
     }
-    .sllbox .linked-list-container .row .item .link-vertical
-    {
+
+    .sllbox .linked-list-container .row .item .link-vertical {
         background-size: 100% 110%;
     }
-    .sllbox .linked-list-container .row .item .value
-    {
+
+    .sllbox .linked-list-container .row .item .value {
         font-size: 16px;
     }
 }
@@ -368,25 +368,26 @@ input::placeholder {
         height: 45%;
         width: 20%;
     }
-    .sllbox .linked-list-container .row .item
-    {
+
+    .sllbox .linked-list-container .row .item {
         height: 38px;
     }
-    .sllbox .linked-list-container .row .item .link-horizontal
-    {
+
+    .sllbox .linked-list-container .row .item .link-horizontal {
         background-size: 55% 83%;
     }
-    .sllbox .linked-list-container .row .item .link-vertical
-    {
+
+    .sllbox .linked-list-container .row .item .link-vertical {
         background-size: 90% 100%
     }
-        .sllbox .linked-list-container .row .item .value {
-            font-size: 20px;
-        }
-                .sllbox .inputBoxes>div
-                {
-                    height: 40%;
-                }
+
+    .sllbox .linked-list-container .row .item .value {
+        font-size: 20px;
+    }
+
+    .sllbox .inputBoxes>div {
+        height: 40%;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -395,25 +396,26 @@ input::placeholder {
         height: 55%;
         width: 19%;
     }
-    .sllbox .linked-list-container .row .item
-    {
+
+    .sllbox .linked-list-container .row .item {
         height: 44px;
     }
-    .sllbox .linked-list-container .row .item .link-horizontal
-    {
+
+    .sllbox .linked-list-container .row .item .link-horizontal {
         background-size: 64% 96%;
     }
-    .sllbox .linked-list-container .row .item .link-vertical
-    {
+
+    .sllbox .linked-list-container .row .item .link-vertical {
         background-size: 75% 94%;
     }
-        .sllbox .linked-list-container .row .item .value {
-            font-size: 24px;
-        }
-                .sllbox .inputBoxes>div
-                {
-                    height: 40%;
-                }
+
+    .sllbox .linked-list-container .row .item .value {
+        font-size: 24px;
+    }
+
+    .sllbox .inputBoxes>div {
+        height: 40%;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -422,24 +424,26 @@ input::placeholder {
         height: 60%;
         width: 18%;
     }
+
     .sllbox .linked-list-container .row .item {
         height: 47px;
     }
-    .sllbox .linked-list-container .row .item .link-horizontal
-    {
+
+    .sllbox .linked-list-container .row .item .link-horizontal {
         background-size: 73% 100%;
     }
-    .sllbox .linked-list-container .row .item .link-vertical
-    {
+
+    .sllbox .linked-list-container .row .item .link-vertical {
         background-size: 80% 80%;
     }
-        .sllbox .linked-list-container .row .item .value {
-            font-size: 26px;
-        }
-        .sllbox .inputBoxes>div
-        {
-            height: 45%;
-        }
+
+    .sllbox .linked-list-container .row .item .value {
+        font-size: 26px;
+    }
+
+    .sllbox .inputBoxes>div {
+        height: 45%;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -448,23 +452,24 @@ input::placeholder {
         height: 70%;
         width: 18%;
     }
-    .sllbox .linked-list-container .row .item
-    {
+
+    .sllbox .linked-list-container .row .item {
         height: 50px;
     }
-    .sllbox .linked-list-container .row .item .link-horizontal  
-    {
+
+    .sllbox .linked-list-container .row .item .link-horizontal {
         background-size: 75% 100%;
     }
-    .sllbox .linked-list-container .row .item .link-vertical
-    {
+
+    .sllbox .linked-list-container .row .item .link-vertical {
         background-size: 80% 75%;
     }
-        .linked-list-container .row .item .value {
-            font-size: 30px;
-        }
-    .sllbox .inputBoxes>div
-    {
+
+    .linked-list-container .row .item .value {
+        font-size: 30px;
+    }
+
+    .sllbox .inputBoxes>div {
         height: 54%;
     }
 }

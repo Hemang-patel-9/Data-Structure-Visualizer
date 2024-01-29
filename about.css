@@ -10,6 +10,10 @@ html {
 	overflow-x: hidden;
 }
 
+body {
+	background-color: rgb(17, 22, 41);
+}
+
 .container {
 	margin: 0;
 	padding: 0;
@@ -79,9 +83,10 @@ html {
 }
 
 .motto .video>video {
-	height: 90%;
+	height: 60%;
 	width: 80%;
-	border: 2px solid red;
+	border: 2px solid rgb(255,0,0,0.7);
+	object-fit: contain;
 }
 
 .team {
@@ -195,7 +200,7 @@ html {
 	}
 
 	.motto .motto-desc .motto-paragraph {
-		font-size: 21.8px;
+		font-size: 20px;
 	}
 
 	.motto {
@@ -204,6 +209,10 @@ html {
 
 	.team>.card-view {
 		flex-direction: column;
+	}
+
+	.team>.card-view>.card-image {
+		width: 70%;
 	}
 }
 
@@ -221,7 +230,7 @@ html {
 	}
 
 	.motto .motto-desc .motto-paragraph {
-		font-size: 26px;
+		font-size: 24px;
 	}
 
 	.motto {
@@ -230,6 +239,10 @@ html {
 
 	.team>.card-view {
 		flex-direction: row;
+	}
+
+	.team>.card-view>.card-image {
+		width: 80%;
 	}
 }
 
@@ -247,7 +260,7 @@ html {
 	}
 
 	.motto .motto-desc .motto-paragraph {
-		font-size: 29px;
+		font-size: 24.3px;
 	}
 
 	.motto {
@@ -257,6 +270,10 @@ html {
 	.team>.card-view {
 		flex-direction: row;
 	}
+
+	.team>.card-view>.card-image {
+		width: 25%;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -265,7 +282,7 @@ html {
 	.img-content p,
 	.motto .motto-desc .motto-heading,
 	.team>div:first-child p {
-		font-size: 48px;
+		font-size: 44px;
 	}
 
 	.img-content p {
@@ -273,7 +290,7 @@ html {
 	}
 
 	.motto .motto-desc .motto-paragraph {
-		font-size: 35px;
+		font-size: 26px;
 	}
 
 	.motto {
@@ -291,7 +308,7 @@ html {
 	.img-content p,
 	.motto .motto-desc .motto-heading,
 	.team>div:first-child p {
-		font-size: 50px;
+		font-size: 48px;
 	}
 
 	.img-content p {
@@ -299,7 +316,7 @@ html {
 	}
 
 	.motto .motto-desc .motto-paragraph {
-		font-size: 40px;
+		font-size: 31px;
 	}
 
 	.motto {

@@ -16,7 +16,6 @@ class Conversion {
     this.stack.push('(');
 
     while (i < str.length) {
-      console.log("Hello");
       if ((str[i] == '$' || str[i] == '^') && (this.stack[this.stack.length - 1] == '$' || this.stack[this.stack.length - 1] == '^') && type == 'post') {
         this.polish += str[i];
         this.updateRank(str[i]);
@@ -30,7 +29,6 @@ class Conversion {
             }
             this.polish += this.stack.pop();
             this.updateRank(this.polish[this.polish.length - 1]);
-            console.log("Hello from 1");
           }
         }
         else {
@@ -41,7 +39,6 @@ class Conversion {
             }
             this.polish += this.stack.pop();
             this.updateRank(this.polish[this.polish.length - 1]);
-            console.log("Hello from 2");
           }
         }
         this.stack.push(str[i]);
@@ -63,16 +60,14 @@ class Conversion {
 
       tableBodyString += `<tr><td>${str[i] ?? "-"}</td><td>${this.stack.join("") ?? "-"}</td><td>${this.polish ?? "-"}</td><td>${this.rank ?? "-"}</td></tr>`;
       i++;
-      console.log("called " + this.stack);
     }
     if (this.rank != 1) {
-      popup(false,"Invalid Expression !");
+      popup(false, "Invalid Expression !");
     }
     while (this.stack.length != 0) {
       if (this.stack[this.stack.length - 1] != '(' || this.stack[this.stack.length - 1] != ')') {
         this.polish += this.stack[this.stack.length - 1];
         this.stack.pop();
-        console.log("Last poped called" + this.stack[this.stack.length - 1]);
         tableBodyString += `<tr><td>${str[i] ?? "-"}</td><td>${this.stack.join("") ?? "-"}</td><td>${this.polish ?? "-"}</td><td>${this.rank ?? "-"}</td></tr>`;
         tableBodyString += `<tr><td>${str[i] ?? "-"}</td><td>${this.stack.join("") ?? "-"}</td><td>${this.polish ?? "-"}</td><td>${this.rank ?? "-"}</td></tr>`;
       }
@@ -104,7 +99,6 @@ class Conversion {
       else {
         stack.push(str[i]);
       }
-      console.log(stack);
       tableBodyString += `<tr><td>${(i + 1) ?? "-"}</td><td>${str[i] ?? "-"}</td><td>${stack.join("") ?? "-"}</td></tr>`;
 
       i++;
@@ -114,34 +108,24 @@ class Conversion {
   }
 
   updateRank(s) {
-    if(s!=" ")
-    {
-      console.log("s is --------- "+s);
+    if (s != " ") {
       switch (s) {
         case "+": this.rank--;
-        console.log("rank decreased.");
-        break;
+          break;
         case "-": this.rank--;
-        console.log("rank decreased.");
-        break;
+          break;
         case "*": this.rank--;
-        console.log("rank decreased.");
-        break;
-      case "/": this.rank--;
-        console.log("rank decreased.");
-        break;
-      case "^": this.rank--;
-        console.log("rank decreased.");
-        break;
-      case "$": this.rank--;
-        console.log("rank decreased.");
-        break;
-      case "": this.rank--;
-        console.log("rank decreased.");
-        break;
-      default:
-        this.rank++;
-        console.log("rank ++");
+          break;
+        case "/": this.rank--;
+          break;
+        case "^": this.rank--;
+          break;
+        case "$": this.rank--;
+          break;
+        case "": this.rank--;
+          break;
+        default:
+          this.rank++;
       }
     }
   }
@@ -197,6 +181,7 @@ document.getElementById("inputBox").addEventListener('change', (e) => {
 function filter() {
   expression.trim();
   expression.toLowerCase();
+  checkExpressions(expression, choice1);
   return true;
 }
 function selection() {
@@ -218,17 +203,19 @@ function Convert() {
     return;
   }
 
-  console.log(choice1 + " " + choice2);
   if (expression != null) {
     let table = document.getElementById("table");
     let table2 = document.getElementById("table2");
 
+    if (choice1 === choice2) {
+      popup(false, "Please select distinct Orders.");
+      return;
+    }
     table.innerHTML = "";
     table2.innerHTML = "";
     let itof = new Conversion();
     table.style.display = "grid";
     table2.style.display = "none";
-
     if (choice1 == "Infix") {
       if (choice2 == "Postfix") {
         answerString = itof.infixToPostfix(expression, "post");
@@ -238,59 +225,46 @@ function Convert() {
         expression = expression.replaceAll('(', '_');
         expression = expression.replaceAll(')', '(');
         expression = expression.replaceAll('_', ')');
-        console.log(expression);
         answerString = itof.infixToPostfix(expression.split("").reverse().join(""), "pre");
-        console.log(answerString);
         tableBodyString += `<tr style="background-color:rgb(109, 129, 240);color:white;"><td colspan="4" style="width:100%;">Answer is = ${answerString.split("").reverse().join("")}</td></tr>`
       }
       table.innerHTML = `<thead><tr><th>Input<br/>Symbol</th><th>Stack</th><th>Reverse Polish Expression</th><th>Rank</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
     }
     else if (choice2 == "Infix") {
       if (choice1 == "Prefix") {
-        console.log(expression);
         expression = expression.replaceAll('(', '_');
         expression = expression.replaceAll(')', '(');
         expression = expression.replaceAll('_', ')');
         answerString = itof.postfixToInfix(expression.split("").reverse().join(""), "pre");
       }
       else if (choice1 == "Postfix") {
-        console.log(expression);
         answerString = itof.postfixToInfix(expression, "post");
       }
       tableBodyString += `<tr style="background-color:rgb(109, 129, 240);color:white;"><td colspan="4" style="width:100%;">Answer is = ${answerString}</td></tr>`
       table.innerHTML = `<thead><tr><th>Sr. No.</th><th>Input<br/>Symbol</th><th>Stack</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
     }
     else if (choice1 == "Prefix" && choice2 == "Postfix") {
-      console.log(expression);
       let infix = "", postfix = "";
       table2.style.display = "grid";
 
-      console.log(table2);
 
       infix = itof.postfixToInfix(expression.split("").reverse().join(""), "pre");
-      console.log(infix);
       tableBodyString += `<tr style="background-color:rgb(109, 129, 240);color:white;"><td colspan="4" style="width:100%;">Infix Expression = ${infix}</td></tr>`
       table.innerHTML += `<thead><tr><th style="width:100%">Prefix To Infix</th></tr><tr><th>Sr. No.</th><th>Input<br/>Symbol</th><th>Stack</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
 
       tableBodyString = "";
 
       postfix = itof.infixToPostfix(infix, "post");
-      console.log(postfix);
 
       tableBodyString += `<tr style="background-color:rgb(109, 129, 240);color:white;"><td colspan="4" style="width:100%;">Postfix Expression = ${postfix}</td></tr>`
       table2.innerHTML = `<thead><tr><th style="width:100%">Infix To Postfix</th></tr><tr><th>Input<br/>Symbol</th><th>Stack</th><th>Reverse Polish Expression</th><th>Rank</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
-      console.log(table);
-      console.log(table2);
     }
     else if (choice1 == "Postfix" && choice2 == "Prefix") {
-      console.log(expression);
       let infix = "", prefix = "";
       table2.style.display = "grid";
 
-      console.log(table2);
 
       infix = itof.postfixToInfix(expression, "Post");
-      console.log(infix);
       tableBodyString += `<tr style="background-color:rgb(109, 129, 240);color:white;"><td colspan="4" style="width:100%;">Infix Expression = ${infix}</td></tr>`
       table.innerHTML += `<thead><tr><th style="width:100%">Postfix To Infix</th></tr><tr><th>Sr. No.</th><th>Input<br/>Symbol</th><th>Stack</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
 
@@ -301,13 +275,22 @@ function Convert() {
       infix = infix.replaceAll('_', ')');
 
       prefix = itof.infixToPostfix(infix.split("").reverse().join(""), "pre");
-      console.log(prefix);
 
       tableBodyString += `<tr style="background-color:rgb(109, 129, 240);color:white;"><td colspan="4" style="width:100%;">Prefix Expression = ${prefix.split("").reverse().join("")}</td></tr>`
       table2.innerHTML = `<thead><tr><th style="width:100%">Infix To Prefix</th></tr><tr><th>Input<br/>Symbol</th><th>Stack</th><th>Reverse Polish Expression</th><th>Rank</th></tr></thead><tbody id="tbody">${tableBodyString}</tbody>`;
-      console.log(table);
-      console.log(table2);
     }
     tableBodyString = "";
+  }
+}
+//check the expressions is valid or not (basic validation)
+function checkExpressions(expressionValue, expressionName) {
+  if (expressionName == "Prefix" && ((expressionValue[0] >= 0 && expressionValue[0] <= 9) || (expressionValue[expressionValue.length - 1] == '+' || expressionValue[expressionValue.length - 1] == '-' || expressionValue[expressionValue.length - 1] == '*' || expressionValue[expressionValue.length - 1] == '/' || expressionValue[expressionValue.length - 1] == '$' || expressionValue[expressionValue.length - 1] == '^'))) {
+    popup(false,"Looking like a Invalid Prefix Expression.");
+  }
+  else if (expressionName == "Infix" && ((expressionValue[0] == '+' || expressionValue[0] == '-' || expressionValue[0] == '' || expressionValue[0] == '/' || expressionValue[0] == '$' || expressionValue[0] == '^') || (expressionValue[expressionValue.length - 1] == '+' || expressionValue[expressionValue.length - 1] == '-' || expressionValue[expressionValue.length - 1] == '' || expressionValue[expressionValue.length - 1] == '/' || expressionValue[expressionValue.length - 1] == '$' || expressionValue[expressionValue.length - 1] == '^'))) {
+    popup(false,"Looking loke a Invalid Infix Expression.");
+  }
+  else if (expressionName == "Postfix" && ((expressionValue[0] == '+' || expressionValue[0] == '-' || expressionValue[0] == '*' || expressionValue[0] == '/' || expressionValue[0] == '$' || expressionValue[0] == '^') || (expressionValue[expressionValue.length - 1] >= 0 && expressionValue[expressionValue.length - 1] <= 9))) {
+    popup(false,"Looking like a invalid Postfix Expression.");
   }
 }

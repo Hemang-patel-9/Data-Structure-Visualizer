@@ -115,7 +115,7 @@ toggBST.addEventListener('click', () => {
     let inputOther = document.getElementById("otherInput").value;
 
     if (inputIn == "" && inputOther == "") {
-        popup(false,"The Box is Empty!");
+        popup(false, "The Box is Empty!");
         fNode = null;
         toggBST.style.backgroundColor = "rgb(20, 27, 53)";
         toggBST.style.color = "rgb(0, 218, 150)";

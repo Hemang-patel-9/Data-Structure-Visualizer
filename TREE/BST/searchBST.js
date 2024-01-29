@@ -4,9 +4,9 @@ function searchBST() {
   let str = document.getElementById("inputBox").value;
   let n = document.getElementById("search").value;
 
+  document.getElementById("search").value = "";
   if (str == "") {
-    popup(false,"Can't search Node Before insertion");
-    document.getElementById("search").value = "";
+    popup(false, "Can't search Node Before insertion");
     return;
   }
 
@@ -54,7 +54,7 @@ function searchBST() {
     ctx.arc(save.ld, save.height, 20, 0, 2 * Math.PI);
     if (BST[i] == n) {
       flag = 1;
-      ctx.fillStyle = "blue";
+      ctx.fillStyle = "pink";
       ctx.fill();
     }
     ctx.stroke();
@@ -75,6 +75,6 @@ function searchBST() {
   }
 
   if (flag == 0) {
-    popup(false,"Node not found in the tree");
+    popup(false, "Node not found in the tree");
   }
 }

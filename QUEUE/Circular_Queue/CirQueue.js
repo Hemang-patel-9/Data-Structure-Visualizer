@@ -6,11 +6,11 @@ class Queue {
     this.size = s;
     this.frontIndex = Number.parseInt(-1);
     this.rearIndex = Number.parseInt(-1);
-    popup(true,"created new queue");
+    popup(true, "created new queue");
   }
   enqueue(data) {
     if (this.rearIndex + 1 == this.frontIndex) {
-      popup(false,"Queue Overflow");
+      popup(false, "Queue Overflow");
       return;
     }
     if (this.rearIndex == this.size - 1) {
@@ -19,7 +19,7 @@ class Queue {
         this.queue.push(data);
         setRear(this.rearIndex + 1, data);
       } else {
-        popup(false,"Queue Overflow");
+        popup(false, "Queue Overflow");
       }
       return;
     }
@@ -29,13 +29,10 @@ class Queue {
     }
     setRear(this.rearIndex + 1, data);
     this.queue.push(data);
-    console.log(this.queue);
-
-    console.log("front = " + this.frontIndex + "\nrear = " + this.rearIndex);
   }
   dequeue() {
     if (this.frontIndex == this.rearIndex && this.frontIndex == -1) {
-      popup(false,"Queue Underflow");
+      popup(false, "Queue Underflow");
       return;
     }
     if (this.frontIndex == this.rearIndex) {
@@ -55,8 +52,6 @@ class Queue {
     this.frontIndex++;
     this.queue.shift();
     setFront(this.frontIndex + 1, this.queue[0]);
-    console.log(this.queue);
-    console.log("front = " + this.frontIndex + "\nrear = " + this.rearIndex);
   }
 }
 //onload code
@@ -86,6 +81,9 @@ document.getElementById("btnSize").addEventListener("click", () => {
       //code for confirmation
       if (confirm("Are you sure to make new queue ?")) {
         q1 = null;
+        for (let a = 1; a <= 40; a++) {
+          document.getElementById(`item${a}`).innerHTML = "";
+        }
         document.getElementById("btnSize").click();
       }
     }
@@ -99,18 +97,30 @@ document.getElementById("btnSize").addEventListener("click", () => {
       l.style.backgroundPosition = "left";
       l.style.backgroundSize = "98% 85%";
     }
+  } else {
+    popup(false, "Please enter size between 5 and 40.")
   }
 });
 
 document.getElementById("btnEnq").addEventListener("click", () => {
   let val = document.getElementById("inputEnq").value;
-  if (val != "" && val<=99999) {
-    q1.enqueue(val);
-    document.getElementById("inputEnq").value = "";
+  if (q1 === null) {
+    popup(false, "Please enter size first.");
   }
+  else if (val != "" && val <= 99999) {
+    q1.enqueue(val);
+  } else {
+    popup(false, "Please enter any value to enqueue.");
+  }
+  document.getElementById("inputEnq").value = "";
+  document.getElementById("inputEnq").focus();
 });
 
 document.getElementById("btnDeq").addEventListener("click", () => {
+  if (q1 === null) {
+    popup(false, "Can't dequeue before enqueue.");
+    return;
+  }
   if (q1.frontIndex != -1) {
     document.getElementById(`item${q1.frontIndex + 1}`).innerHTML = "";
   }

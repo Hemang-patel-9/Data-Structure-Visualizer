@@ -44,7 +44,7 @@ class DoublyLL {
 
     async delete(val) {
         if (this.head === null) {
-            popup(false,"can't delete from empty linkedlist");
+            popup(false, "can't delete from empty linkedlist");
             return;
         }
 
@@ -56,6 +56,7 @@ class DoublyLL {
                 ptr.rptr.lptr = pred;
                 ptr = null;
                 await setColor(i);
+                arr.splice(arr.indexOf(Number.parseInt(val)), 1);
                 displayDLL();
                 return;
             }
@@ -65,16 +66,17 @@ class DoublyLL {
             i++;
         }
 
-        if (ptr.data == val) {
+        if (ptr.data === val) {
             pred.rptr = null;
             ptr = null;
             await setColor(i)
+            arr.splice(arr.indexOf(Number.parseInt(val)), 1);
             displayDLL();
             return;
         }
 
         displayDLL();
-        popup(false,"Node not found");
+        popup(false, "Node not found");
     }
 
     async search(n) {
@@ -95,7 +97,7 @@ class DoublyLL {
 
         if (flag == false) {
             displayDLL();
-            popup(false,"Node not found in list!");
+            popup(false, "Node not found in list!");
         }
     }
 }
@@ -113,24 +115,39 @@ document.getElementById('btnInsert').addEventListener("click", () => {
         val.value = "";
     }
     else {
-        popup(false,"Only Number can be inserted in list")
+        popup(false, "Only Number can be inserted in list")
     }
+    val = document.getElementById("insertInput").focus();
 })
 
 document.getElementById("btnDelete").addEventListener("click", () => {
     let val = document.getElementById("deleteInput");
-    dl.delete(Number.parseInt(val.value));
-    arr.splice(arr.indexOf(Number.parseInt(val.value)), 1);
+    if (dl.head !== null) {
+        if (val.value != "" && val.value != NaN) {
+            dl.delete(Number.parseInt(val.value));
+
+            // arr.splice(arr.indexOf(Number.parseInt(val.value)), 1);
+        } else {
+            popup(false, "Please enter some value to delete.");
+        }
+    } else {
+        popup(false, "Can't delete node before insertion.");
+    }
     val.value = "";
 });
 
 document.getElementById("btnSearch").addEventListener("click", () => {
+    let val = document.getElementById("searchInput");
     if (dl.head === null) {
         popup(false, "Can't search before insertion");
+        val.value = "";
         return;
     }
-    let val = document.getElementById("searchInput");
-    dl.search(Number.parseInt(val.value));
+    if (val.value != "" && val.value != NaN) {
+        dl.search(Number.parseInt(val.value));
+    } else {
+        popup(false, "Please enter some value to search.");
+    }
     val.value = "";
 });
 

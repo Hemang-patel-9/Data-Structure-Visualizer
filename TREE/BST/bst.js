@@ -181,8 +181,6 @@ class BinarySearchTree {
         node = null;
       }
     }
-    console.log("are re aa to jo");
-    console.log(strDel);
   }
 
   setBST(node) {
@@ -239,7 +237,7 @@ function CreateBinaryTree() {
   let inputvalue = document.getElementById("inputBox").value;
 
   if (inputvalue == "") {
-    popup(false,"The Box is Empty!");
+    popup(false, "The Box is Empty!");
     fBST = null;
     return;
   }

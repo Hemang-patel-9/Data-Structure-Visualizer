@@ -2,6 +2,13 @@ function searchAVL() {
   let flag = 0;
   document.getElementById("myAvlCanvas").scrollIntoView();
   let n = document.getElementById("search").value;
+  document.getElementById("search").value = "";
+
+  if (n == "" || n == NaN) {
+    popup(false, "Please enter some value to search.");
+    return;
+  }
+
   n = Number.parseInt(n);
 
   const draw = document.getElementById("myAvlCanvas");
@@ -13,7 +20,7 @@ function searchAVL() {
 
   if (fHB.root.data == n) {
     flag = 1;
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "pink";
     ctx.fill();
   }
 
@@ -46,7 +53,7 @@ function searchAVL() {
     ctx.arc(save.ld, save.height, 20, 0, 2 * Math.PI);
     if (AVL[i] == n) {
       flag = 1;
-      ctx.fillStyle = "blue";
+      ctx.fillStyle = "pink";
       ctx.fill();
     }
     ctx.stroke();
@@ -67,6 +74,6 @@ function searchAVL() {
   }
 
   if (flag == 0) {
-    popup(false,"Node not found in the tree");
+    popup(false, "Node not found in the tree");
   }
 }

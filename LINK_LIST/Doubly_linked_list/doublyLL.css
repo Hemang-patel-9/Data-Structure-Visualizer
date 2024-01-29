@@ -30,7 +30,7 @@ input::-webkit-outer-spin-button {
 }
 
 input::placeholder {
-	color: black;
+	color: rgb(0, 0, 0, 0.6);
 }
 
 .sllbox {
@@ -205,12 +205,12 @@ input::placeholder {
 		height: 36%;
 		width: 22%;
 	}
-	.sllbox .linked-list-container>.row>.item>div
-	{
+
+	.sllbox .linked-list-container>.row>.item>div {
 		font-size: 15px;
 	}
-	.sllbox .linked-list-container>.row
-	{
+
+	.sllbox .linked-list-container>.row {
 		height: 7%;
 	}
 }
@@ -220,12 +220,12 @@ input::placeholder {
 		height: 45%;
 		width: 20%;
 	}
-	.sllbox .linked-list-container>.row>.item>div
-	{
+
+	.sllbox .linked-list-container>.row>.item>div {
 		font-size: 20px;
 	}
-	.sllbox .linked-list-container>.row
-	{
+
+	.sllbox .linked-list-container>.row {
 		height: 8%;
 	}
 }
@@ -236,12 +236,12 @@ input::placeholder {
 		height: 55%;
 		width: 19%;
 	}
-	.sllbox .linked-list-container>.row>.item>div
-	{
+
+	.sllbox .linked-list-container>.row>.item>div {
 		font-size: 27px;
 	}
-	.sllbox .linked-list-container>.row
-	{
+
+	.sllbox .linked-list-container>.row {
 		height: 9%;
 	}
 }
@@ -252,12 +252,12 @@ input::placeholder {
 		height: 60%;
 		width: 18%;
 	}
-	.sllbox .linked-list-container>.row>.item>div
-	{
+
+	.sllbox .linked-list-container>.row>.item>div {
 		font-size: 30px;
 	}
-	.sllbox .linked-list-container>.row
-	{
+
+	.sllbox .linked-list-container>.row {
 		height: 10%;
 	}
 }
@@ -268,12 +268,12 @@ input::placeholder {
 		height: 70%;
 		width: 18%;
 	}
-	.sllbox .linked-list-container>.row>.item>div
-	{
+
+	.sllbox .linked-list-container>.row>.item>div {
 		font-size: 30px;
 	}
-	.sllbox .linked-list-container>.row
-	{
+
+	.sllbox .linked-list-container>.row {
 		height: 12.7%;
 	}
 }

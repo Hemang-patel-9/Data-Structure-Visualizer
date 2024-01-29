@@ -1,3 +1,5 @@
+let maxh = 1;
+
 function PrintTree(node, arr) {
   const draw = document.getElementById("myBstCanvas");
   const ctx = draw.getContext("2d");
@@ -11,12 +13,9 @@ function PrintTree(node, arr) {
     ctx.fillText("STEP - " + (i + 1), 5, inc);
     let save = node,
       pred = node;
-
-    console.log(i);
-    h = 10;
-
     for (j = 0; j <= i; j++) {
-      console.log("Its drawing");
+      h = 1, extra = 0;
+
       (save = node), (pred = node);
       while (true) {
         if (arr[j] == save.data) {
@@ -30,35 +29,40 @@ function PrintTree(node, arr) {
           save = save.right;
           d = 1;
         }
-        h += 50;
+        h++;
       }
 
+      extra = save.stepStr.length * 20;
+
       ctx.beginPath();
-      ctx.arc(save.ld, save.height + inc, 20, 0, 2 * Math.PI);
+      ctx.arc(save.ld, save.height + inc + extra, 20, 0, 2 * Math.PI);
       ctx.stroke();
 
       if (j != 0) {
         ctx.beginPath();
         if (d == -1) {
-          ctx.moveTo(pred.ld - 15, save.height + inc - 35);
-          ctx.lineTo(save.ld + 17, save.height + inc - 10);
+          ctx.moveTo(pred.ld - 15, save.height + inc - 55 + extra);
+          ctx.lineTo(save.ld + 17, save.height + inc - 10 + extra);
         } else {
-          ctx.moveTo(pred.ld + 15, save.height + inc - 35);
-          ctx.lineTo(save.ld - 17, save.height + inc - 10);
+          ctx.moveTo(pred.ld + 15, save.height + inc - 55 + extra);
+          ctx.lineTo(save.ld - 17, save.height + inc - 10 + extra);
         }
         ctx.stroke();
       }
-      ctx.fillText(save.data, save.ld - 6, save.height + inc);
+      ctx.fillText(save.data, save.ld - 6, save.height + inc + extra);
 
-      h += 120;
+      h++;
+
+      if (h > maxh) {
+        maxh = h;
+      }
     }
 
     for (let k = 0; k < save.stepStr.length; k++) {
-      console.log("Its statement");
       ctx.font = "18px Roman";
       ctx.fillText(save.stepStr[k], 10, inc + 20 + k * 20);
     }
 
-    inc = h;
+    inc = inc + (maxh * 60) + 100;
   }
 }

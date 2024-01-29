@@ -21,11 +21,9 @@ function Convert() {
 		return;
 	}
 	let arr = val.split(" ");
-	console.log("without filtered " + arr);
 	arr = arr.filter((n) => {
 		return n;
 	});
-	console.log(arr);
 	prefixToInfix(arr, choice);
 }
 
@@ -63,15 +61,12 @@ function prefixToInfix(arr, type) {
 					break;
 			}
 			tableString += `<tr><td>${i + 1}</td><td>${arr[i]}</td><td>${stack}</td></tr>`
-			console.log("converted =>" + stack);
 		}
 		else {
 			stack.push(arr[i]);
-			console.log("pushed =>" + stack);
 			tableString += `<tr><td>${i + 1}</td><td>${arr[i]}</td><td>${stack}</td></tr>`
 		}
 		i++;
-		console.log("stack => " + stack);
 	}
 
 	document.getElementById("tableDiv").style.display = "block";

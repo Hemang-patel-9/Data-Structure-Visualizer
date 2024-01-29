@@ -3,15 +3,32 @@ let AVL = [];
 let fHB = null;
 let isChange = false;
 let strDel = [];
+let maxheight = 1;
+let secondTime = false;
 
 function BalancedTree() {
   isChange = true;
   let inputvalue = document.getElementById("inputBox").value;
 
   if (inputvalue == "") {
-    alert("The Box is Empty!");
+    popup(false, "Please enter some value to be inserted in AVL Tree.");
     fHB = null;
     return;
+  }
+
+  if (secondTime == true) {
+    if (confirm("Are you sure to make new AVL tree?")) {
+      HBleftDistance = [];
+      AVL = [];
+      fHB = null;
+      isChange = false;
+      strDel = [];
+      maxheight = 1;
+      secondTime = false;
+    }
+    else {
+      return;
+    }
   }
 
   let nArr = [];
@@ -587,10 +604,10 @@ class HBTree {
     strArr = strArr + " " + Number.parseInt(node.data);
   }
 }
-
 function Make_HBTree(arr) {
   const HB = new HBTree();
   current = 20;
+  secondTime = true;
 
   const draw = document.getElementById("myAvlCanvas");
   const ctx = draw.getContext("2d");
@@ -598,7 +615,6 @@ function Make_HBTree(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     HB.HBinsert(Number.parseInt(arr[i]));
-
     PrintHB(HB, arr[i], i);
   }
 
@@ -655,21 +671,36 @@ function setLeftDistance(a) {
 
 function printPre() {
   strArr = "";
-  fHB.preOrder(fHB.root);
-  popup(true,strArr);
+  if (fHB === null) {
+    popup(false, "PreOrder Traversal can be accessed after creating AVL Tree.");
+  }
+  else {
+    fHB.preOrder(fHB.root);
+    popup(true, "PreOrder Traversal - " + strArr);
+  }
   strArr = "";
 }
 
 function printIn() {
   strArr = "";
-  fHB.inOrder(fHB.root);
-  popup(true,strArr);
+  if (fHB === null) {
+    popup(false, "InOrder Traversal can be accessed after creating AVL Tree.");
+  }
+  else {
+    fHB.inOrder(fHB.root);
+    popup(true, "InOrder Traversal - " + strArr);
+  }
   strArr = "";
 }
 
 function printPost() {
   strArr = "";
-  fHB.postOrder(fHB.root);
-  popup(true,strArr);
+  if (fHB === null) {
+    popup(false, "PostOrder Traversal can be accessed after creating AVL Tree.");
+  }
+  else {
+    fHB.postOrder(fHB.root);
+    popup(true, "PostOrder Traversal - " + strArr);
+  }
   strArr = "";
 }

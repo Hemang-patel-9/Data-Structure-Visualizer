@@ -153,7 +153,7 @@ input::-webkit-inner-spin-button {
 }
 
 input::placeholder {
-	color: black;
+	color: rgb(0, 0, 0, 0.6);
 	text-align: left;
 }
 
@@ -207,8 +207,8 @@ input::placeholder {
 	flex-direction: row;
 	margin: 2px;
 }
-.x .queue>div:nth-child(even)
-{
+
+.x .queue>div:nth-child(even) {
 	flex-direction: row-reverse;
 }
 

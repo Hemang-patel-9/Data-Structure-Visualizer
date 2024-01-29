@@ -118,7 +118,6 @@ document.getElementById("btnChange").addEventListener("click", () => {
     let newval = document.getElementById("newvalue").value;
     if (position != "" && newval != "") {
       let tmp = b1.changeStack(position, newval);
-      console.log(tmp);
       if (tmp != undefined) {
         changeDiv(position, newval);
       }
@@ -153,7 +152,6 @@ function makeDiv(data) {
   animationForPush(divID);
 }
 async function animationForPush(id) {
-  console.log("push performing init");
   perfoming = true;
   let t = document.getElementById("outer").clientHeight;
   let minus = document.getElementById(id).clientHeight;
@@ -166,7 +164,6 @@ async function animationForPush(id) {
     set.style.top = `${t}px`;
   }
   perfoming = false;
-  console.log("push performing terminated");
 }
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -175,7 +172,6 @@ function sleep(ms) {
 }
 async function delDiv() {
   perfoming = true;
-  console.log("pop performing init");
   if (divID > 0) {
     let t = document.getElementById("outer").clientHeight;
     let set = document.getElementById(divID);
@@ -193,11 +189,9 @@ async function delDiv() {
     popup(false,"can't pop the element from stack.");
   }
   perfoming = false;
-  console.log("pop performing terminated");
 }
 
 async function findDiv(val) {
-  console.log("peep performing init");
   perfoming = true;
   let f = divID;
   while (f != front - val + 2) {
@@ -212,13 +206,10 @@ async function findDiv(val) {
   await sleep(1500);
   document.getElementById(f).style.backgroundColor = "blue";
   perfoming = false;
-  console.log("peep performing terminated");
 }
 async function changeDiv(position, newval) {
   perfoming = true;
-  console.log("change performing init");
   await findDiv(position);
   document.getElementById(front - position + 2).innerHTML = newval;
   perfoming = false;
-  console.log("change performing terminated");
 }

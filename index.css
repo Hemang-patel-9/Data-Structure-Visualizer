@@ -193,7 +193,10 @@ html {
 	width: 50%;
 	color: darkcyan;
 }
-
+#home:hover,
+#aboutus:hover {
+	cursor: pointer;
+}
 @media only screen and (min-width: 470px) {
 	.container .content {
 		height: 38%;

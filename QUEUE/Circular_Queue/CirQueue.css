@@ -49,7 +49,7 @@ input::-webkit-inner-spin-button {
 }
 
 input::placeholder {
-	color: black;
+	color: rgb(0, 0, 0, 0.6);
 	text-align: left;
 }
 
@@ -108,10 +108,11 @@ input::placeholder {
 	flex-direction: row;
 	margin: 2px;
 }
-.x .queue>div:nth-child(even)
-{
+
+.x .queue>div:nth-child(even) {
 	flex-direction: row-reverse;
 }
+
 .x .queue>div>.item {
 	position: relative;
 	display: none;
@@ -173,6 +174,7 @@ input::placeholder {
 	height: 100%;
 	width: 50%;
 }
+
 @keyframes queue {
 	from {
 		opacity: 0;
@@ -229,9 +231,10 @@ input::placeholder {
 	.x .queue>div>.item .both .innerboth {
 		font-size: 6.5px;
 	}
-		.x .queue {
-			background-size: 98% 86%;
-		}
+
+	.x .queue {
+		background-size: 98% 86%;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -264,7 +267,7 @@ input::placeholder {
 		margin-right: 8px;
 		font-size: 20px;
 	}
-	
+
 	.x .queue>div>.item .position {
 		width: 35px;
 		font-size: 15px;
@@ -273,8 +276,8 @@ input::placeholder {
 	.x .queue>div>.item .both .innerboth {
 		font-size: 10.5px;
 	}
-	.x .queue
-	{
+
+	.x .queue {
 		background-size: 98% 83%;
 	}
 }
@@ -311,12 +314,12 @@ input::placeholder {
 		width: 45px;
 		font-size: 20px;
 	}
-	
+
 	.x .queue>div>.item .both .innerboth {
 		font-size: 12px;
 	}
-	.x .queue
-	{
+
+	.x .queue {
 		background-size: 98% 86%;
 	}
 }
@@ -350,8 +353,8 @@ input::placeholder {
 	.x .queue>div>.item .both .innerboth {
 		font-size: 15px;
 	}
-	.x .queue
-	{
+
+	.x .queue {
 		background-size: 98% 83%;
 	}
 }

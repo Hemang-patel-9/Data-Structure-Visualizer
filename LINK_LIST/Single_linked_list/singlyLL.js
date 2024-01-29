@@ -42,7 +42,7 @@ class LinkedList {
   delete(val) {
     val = Number.parseInt(val);
     if (this.head === null) {
-      popup(false,"can't delete from empty linkedlist");
+      popup(false, "can't delete from empty linkedlist");
       return;
     }
 
@@ -66,7 +66,7 @@ class LinkedList {
       console.log(arr);
       return;
     }
-    popup(false,"Node not found");
+    popup(false, "Node not found");
   }
 
   async search(n) {
@@ -79,7 +79,7 @@ class LinkedList {
 
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === Number.parseInt(n)) {
-        await setColor(item, oddrow,"lightgreen");
+        await setColor(item, oddrow, "lightgreen");
         flag = true;
         displayNodes();
         break;
@@ -102,23 +102,25 @@ class LinkedList {
     }
 
     if (flag == false) {
-      popup(false,"Node not found in list!");
+      popup(false, "Node not found in list!");
     }
 
-    async function setColor(item, oddrow,last_color) {
+    async function setColor(item, oddrow, last_color) {
       if (oddrow == true) {
         if (item != 0 && new_row == true) {
+          console.log("hi");
           let oldchild = document.getElementById(`item${item - 1}`).children;
           oldchild[1].style.backgroundColor = "aqua";
           oldchild[0].childNodes[0].style.backgroundColor = "aqua";
         } else if (item != 0 && first == false) {
+          console.log("Hello");
           let oldchild = document.getElementById(`item${item - 1}`).children;
           oldchild[0].style.backgroundColor = "aqua";
           oldchild[1].childNodes[0].style.backgroundColor = "aqua";
         }
         let newchild = document.getElementById(`item${item}`).children;
-        newchild[0].style.backgroundColor = last_color??"red";
-        newchild[1].childNodes[0].style.backgroundColor = last_color??"red";
+        newchild[0].style.backgroundColor = last_color ?? "red";
+        newchild[1].childNodes[0].style.backgroundColor = last_color ?? "red";
         await sleep(700);
         if (last_color != null) {
           await sleep(1100);
@@ -137,8 +139,7 @@ class LinkedList {
         newchild[1].style.backgroundColor = last_color ?? "red";
         newchild[0].childNodes[0].style.backgroundColor = last_color ?? "red";
         await sleep(700);
-        if(last_color!=null)
-        {
+        if (last_color != null) {
           await sleep(1000);
         }
       }
@@ -148,34 +149,71 @@ class LinkedList {
         setTimeout(resolve, ms);
       });
     }
-    let oldchild = document.getElementById(`item${item - 1}`).children;
-    oldchild[0].style.backgroundColor = "aqua";
-    oldchild[1].childNodes[0].style.backgroundColor = "aqua";
+    if (oddrow == true) {
+      if (item != 0 && new_row == true) {
+        let oldchild = document.getElementById(`item${item - 1}`).children;
+        oldchild[1].style.backgroundColor = "aqua";
+        oldchild[0].childNodes[0].style.backgroundColor = "aqua";
+      } else if (item != 0 && first == false) {
+        let oldchild = document.getElementById(`item${item - 1}`).children;
+        oldchild[0].style.backgroundColor = "aqua";
+        oldchild[1].childNodes[0].style.backgroundColor = "aqua";
+      }
+    }
+    else {
+      if (item % 8 == 0) {
+        let oldchild = document.getElementById(`item${item - 1}`).children;
+        oldchild[0].style.backgroundColor = "aqua";
+        oldchild[1].childNodes[0].style.backgroundColor = "aqua";
+      } else {
+        let oldchild = document.getElementById(`item${item - 1}`).children;
+        oldchild[1].style.backgroundColor = "aqua";
+        oldchild[0].childNodes[0].style.backgroundColor = "aqua";
+      }
+    }
   }
 }
 sl = new LinkedList();
 //clicking event
 document.getElementById("btnSearch").addEventListener("click", () => {
-  if(sl.head===null){
-    popup(false,"Can't search before insertion");
+  if (sl.head === null) {
+    popup(false, "Can't search before insertion");
     return;
   }
-  let val = document.getElementById("searchInput").value;
-  sl.search(Number.parseInt(val));
-  val = "";
+  let val = document.getElementById("searchInput");
+  if (val.value != "" && val.value != NaN) {
+    sl.search(Number.parseInt(val.value));
+  }
+  else {
+    popup(false, "Please some value to search.")
+  }
+  val.value = "";
 });
 document.getElementById("btnInsert").addEventListener("click", () => {
   let val = document.getElementById("insertInput");
   if (val.value != "" && val.value != NaN) {
     sl.insert(Number.parseInt(val.value));
   }
-  val.value = "";
+  else {
+    popup(false, "Please enter some value to insert.");
+  }
+  // val.value = "";
   displayNodes();
+  val = document.getElementById("insertInput").focus();
 });
 document.getElementById("btnDelete").addEventListener("click", () => {
+  if (sl.head === null) {
+    popup(false, "Can't delete from empty linkedlist.");
+    return;
+  }
   let val = document.getElementById("deleteInput");
-  sl.delete(Number.parseInt(val.value));
-  displayNodes();
+  if (val.value != "" && val.value != NaN) {
+    sl.delete(Number.parseInt(val.value));
+    displayNodes();
+  }
+  else {
+    popup(false, "Please enter some value to delete.");
+  }
   val.value = "";
 });
 

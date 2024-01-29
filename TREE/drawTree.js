@@ -9,7 +9,6 @@ function draw(node, arr, canvas) {
   ctx.font = "18px Roman";
 
   for (let k = 0; k < strDel.length; k++) {
-    console.log("Its statement");
     ctx.fillText(strDel[k], 20, 20 + k * 20);
     current += 30;
   }

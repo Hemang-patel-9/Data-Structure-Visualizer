@@ -1,9 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
 .container {
 	height: 100%;
 	width: 100%;
 	background-color: rgb(214, 220, 255);
 	position: fixed;
+	margin: 0;
+	padding: 0;
 }
+
 .boxes {
 	width: 100%;
 	height: 80%;
@@ -12,6 +26,7 @@
 	display: flex;
 	flex-direction: column;
 }
+
 .boxes .box {
 	margin: 40px auto;
 	width: 50%;

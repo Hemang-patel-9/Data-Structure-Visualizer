@@ -8,16 +8,16 @@ class DEQueue {
     this.size = s;
     this.frontIndex = Number.parseInt(-1);
     this.rearIndex = Number.parseInt(-1);
-    popup(true,"created new queue");
+    popup(true, "created new queue");
   }
 
   insertFront(data) {
     if (this.frontIndex == 0) {
-      popup(false,"Queue overflow");
+      popup(false, "Queue overflow");
       return;
     }
     if (this.frontIndex == -1) {
-      popup(false,"Empty Queue");
+      popup(false, "Empty Queue");
       return;
     }
     this.dequeue.unshift(data);
@@ -27,7 +27,7 @@ class DEQueue {
 
   insertLast(data) {
     if (this.rearIndex == this.size - 1) {
-      popup(false,"Queue Overflow");
+      popup(false, "Queue Overflow");
       return;
     }
 
@@ -41,7 +41,7 @@ class DEQueue {
 
   deleteFront() {
     if (this.frontIndex == this.rearIndex + 1 || this.frontIndex == -1) {
-      popup(false,"Queue Underflow");
+      popup(false, "Queue Underflow");
       return;
     }
     if (this.frontIndex == this.rearIndex) {
@@ -59,7 +59,7 @@ class DEQueue {
 
   deleteLast() {
     if (this.rearIndex == -1) {
-      popup(false,"can't delete from empty queue");
+      popup(false, "can't delete from empty queue");
       return;
     }
     if (this.rearIndex == this.frontIndex) {
@@ -98,25 +98,43 @@ document.getElementById("btnSize").addEventListener("click", () => {
     } else {
       if (confirm("Are sure to create new queue")) {
         deq = null;
+        for (let a = 1; a <= 40; a++) {
+          document.getElementById(`item${a}`).innerHTML = "";
+        }
         document.getElementById("btnSize").click();
       }
     }
+  } else {
+    popup(false, "Please enter size between 5 and 40.")
   }
 });
 
 document.getElementById("btnEnq").addEventListener("click", () => {
-  let val = document.getElementById("inputEnq").value;
-  if (val != "") {
-    if (togg == 1) {
-      deq.insertFront(Number.parseInt(val));
-    } else {
-      deq.insertLast(Number.parseInt(val));
+  if (deq === null) {
+    popup(false, "Please enter size first");
+  }
+  else {
+    let val = document.getElementById("inputEnq").value;
+    if (val != "") {
+      if (togg == 1) {
+        deq.insertFront(Number.parseInt(val));
+      } else {
+        deq.insertLast(Number.parseInt(val));
+      }
+    }
+    else {
+      popup(false, "Please enter some value to enqueue.")
     }
   }
-  // document.getElementById("inputEnq").value="";
+  document.getElementById("inputEnq").value = "";
+  document.getElementById("inputEnq").focus();
 });
 
 document.getElementById("btnDeq").addEventListener("click", () => {
+  if (deq === null) {
+    popup(false, "Can't dequeue before enqueue.");
+    return;
+  }
   if (togg == 1) {
     deq.deleteFront();
   } else {
@@ -177,7 +195,7 @@ function setDeleteLast(id, val) {
   let parent = document.getElementById(`item${id}`);
 
   if (deq.frontIndex === deq.rearIndex) {
-    isEqual=true;
+    isEqual = true;
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
   } else {
     parent.innerHTML = `${val}<div class='position' id='rear'>rear</div>`;
@@ -190,7 +208,7 @@ function setDeleteFirst(id, val) {
 
   document.getElementById(`item${id - 1}`).innerHTML = "";
   if (deq.frontIndex === deq.rearIndex) {
-    isEqual=true;
+    isEqual = true;
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
   } else {
     parent.innerHTML = `${val}<div class='position' id='front'>front</div>`;

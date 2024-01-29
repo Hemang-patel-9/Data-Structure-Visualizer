@@ -6,11 +6,11 @@ class Queue {
     this.size = s;
     this.frontIndex = Number.parseInt(0);
     this.rearIndex = Number.parseInt(0);
-    popup(true,"created new queue");
+    popup(true, "created new queue");
   }
   enqueue(data) {
     if (this.size == this.rearIndex) {
-      popup(false,"Queue Overflow");
+      popup(false, "Queue Overflow");
     } else {
       this.rearIndex++;
       if (this.frontIndex == 0) {
@@ -18,16 +18,13 @@ class Queue {
       }
       setRear(this.rearIndex, data);
       this.queue.push(data);
-      console.log(this.queue);
     }
-    console.log("ront = " + this.frontIndex + "\nrear = " + this.rearIndex);
   }
   dequeue() {
     if (
       this.frontIndex == this.rearIndex + 1 ||
-      (this.frontIndex == this.rearIndex && this.frontIndex == 0))
-    {
-      popup(false,"Queue Underflow");
+      (this.frontIndex == this.rearIndex && this.frontIndex == 0)) {
+      popup(false, "Queue Underflow");
       return;
     }
     if (this.frontIndex == this.rearIndex) {
@@ -42,8 +39,6 @@ class Queue {
     if (this.frontIndex != this.rearIndex + 1) {
       setFront(this.frontIndex, this.queue[0]);
     }
-    console.log(this.queue);
-    console.log("front = " + this.frontIndex + "\nrear = " + this.rearIndex);
   }
 }
 //onload code
@@ -70,21 +65,40 @@ document.getElementById("btnSize").addEventListener("click", () => {
       //code for confirmation
       if (confirm("Are you sure to make new queue ?")) {
         q1 = null;
+        for (let a = 1; a <= 40; a++) {
+          document.getElementById(`item${a}`).innerHTML = "";
+        }
         document.getElementById("btnSize").click();
       }
     }
   }
-});
-
-document.getElementById("btnEnq").addEventListener("click", () => {
-  let val = document.getElementById("inputEnq").value;
-  if (val != "") {
-    q1.enqueue(val);
-    document.getElementById("inputEnq").value = "";
+  else {
+    popup(false, "Please enter size between 5 and 40.")
   }
 });
 
+document.getElementById("btnEnq").addEventListener("click", () => {
+  if (q1 === null) {
+    popup(false, "Please enter size first");
+  }
+  else {
+    let val = document.getElementById("inputEnq").value;
+    if (val != "" && val != NaN) {
+      q1.enqueue(val);
+    }
+    else {
+      popup(false, "Please enter some value to insert.");
+    }
+  }
+  document.getElementById("inputEnq").value = "";
+  document.getElementById("inputEnq").focus();
+});
+
 document.getElementById("btnDeq").addEventListener("click", () => {
+  if (q1 === null) {
+    popup(false, "Can't dequeue before enqueue.");
+    return
+  }
   if (q1.frontIndex != 0) {
     document.getElementById(`item${q1.frontIndex}`).innerHTML = "";
   }
@@ -101,15 +115,11 @@ function setRear(id, val) {
     document.getElementById("rear").remove();
   }
   let parent = document.getElementById(`item${id}`);
-  console.log(parent);
   if (q1.frontIndex === q1.rearIndex) {
-    console.log("same indexes here");
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
     isEqual = true;
   } else {
     if (isEqual == true) {
-      console.log(q1.frontIndex + " is a front man");
-      console.log("Arra is " + q1.queue[0]);
       let p = document.getElementById(`item${q1.frontIndex}`);
       p.innerHTML = `${q1.queue[0]}<div class='position' id='front'>front</div>`;
     }
@@ -119,9 +129,7 @@ function setRear(id, val) {
 }
 function setFront(id, val) {
   val = Number.parseInt(val);
-  console.log("setFront id is " + id);
   let parent = document.getElementById(`item${id}`);
-  console.log(parent);
   if (q1.frontIndex === q1.rearIndex) {
     parent.innerHTML = `${val}<div class="both" id="both"><div class="innerboth" id="front">front</div><div class="innerboth" id="rear">rear</div></div>`;
   } else {
